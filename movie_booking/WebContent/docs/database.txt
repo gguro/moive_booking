@@ -1,0 +1,12 @@
+
+	
+>> sql 
+create table mv_member(
+    userid  varchar2(10)
+    pwd     varchar2(20)
+    name    varchar2(20)
+    gender  varchar2(10)
+    email   varchar2(50)
+    phone   varchar2(20)
+    usergroup   varchar2(10)
+)
