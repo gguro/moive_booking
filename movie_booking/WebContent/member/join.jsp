@@ -35,8 +35,8 @@
 			</tr>
 			<tr>
 				<td>회원분류</td>
-				<td><input type="radio" name="group" value="user"
-					checked="checked">일반회원 <input type="radio" name="group"
+				<td><input type="radio" name="usergroup" value="user"
+					checked="checked">일반회원 <input type="radio" name="usergroup"
 					value="admin">관리자</td>
 			</tr>
 			<tr>

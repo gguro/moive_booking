@@ -4,10 +4,10 @@ public class MemberDTO {
 	private String userid;
 	private String pwd;
 	private String name;
-	private String gender;
 	private String email;
 	private String phone;
 	private String usergroup;
+	
 	public String getUserid() {
 		return userid;
 	}
@@ -26,12 +26,7 @@ public class MemberDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
+	
 	public String getEmail() {
 		return email;
 	}
@@ -52,7 +47,7 @@ public class MemberDTO {
 	}
 	@Override
 	public String toString() {
-		return "MemberDTO [userid=" + userid + ", pwd=" + pwd + ", name=" + name + ", gender=" + gender + ", email="
+		return "MemberDTO [userid=" + userid + ", pwd=" + pwd + ", name=" + name + ", email="
 				+ email + ", phone=" + phone + ", usergroup=" + usergroup + "]";
 	}
 	

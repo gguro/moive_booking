@@ -34,6 +34,11 @@
 					</div>	
 				</td>
 			</tr>
+			<tr align="center">
+				<td colspan="2" align="center">
+					${message}
+				</td>
+			</tr>
 		</table>
 	</form>
 </div>
