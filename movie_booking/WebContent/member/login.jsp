@@ -6,10 +6,10 @@
 	
 	 
 	<form method="post" name="frm" action="MemberFC?command=login">
-		<table align="center">
+		<table >
 			<tr>
 				<td align="center">아이디</td>
-				<td><input type="text" name="userid" value="${userid}"}></td>
+				<td><input type="text" name="userid" value="${userid}"></td>
 			</tr>
 			<tr>
 				<td align="center">비밀번호</td>
