@@ -21,14 +21,12 @@ insert into mv_member values('zzzz', 'zzzz', 'zzzz', 'zzzz', 'zzzz', 'admin');
 ==================================
 create table mv_movie(
 	code		varchar2(4),
-	name		varchar2(20),
-	director	varchar2(20),
-	cast		varchar2(20),
-	runtime		varchar2(20),
-	imglink1	varchar2(50),
-	imglink2	varchar2(50),
-	status		varchar2(10), 	// running (상영중), stop(상영종료), pause(대기중)
-	description	varchar2(100)
+	name		varchar2(30),
+	director	varchar2(30),
+	cast		varchar2(60),
+	imglink1	varchar2(100),
+	imglink2	varchar2(100),
+	description	varchar2(300)
 );
 
 -- 예제 자료
