@@ -4,6 +4,7 @@ public class TheaterDTO {
 	private String theaterCode;
 	private String theaterName;
 	private String theaterLocation;
+	
 	public String getTheaterCode() {
 		return theaterCode;
 	}

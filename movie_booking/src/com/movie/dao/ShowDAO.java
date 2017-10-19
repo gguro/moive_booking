@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 
 import com.movie.dto.MemberDTO;
 import com.movie.util.DBManager;
@@ -20,15 +23,12 @@ public class ShowDAO {
 	}
 	
 	
+	// int insertShow(ShowDTO)
+	// int updateShow(ShowDTO)
+	// ShowDTO getShow(영화제목, 극장, 상영관, 타임)
+	// ArrayList<ShowDTO> getShowListByTitle(영화제목)
+	// ArrayList<ShowDTO> getShowListAll()
 	
-	// insert ShowDAO
-	
-	
-	
-	// update
-	// ShowDTO getshow(영화제목, 극장, 상영관, 타임)
-	// ArrayList<ShowDTO> getShow(영화제목)
-	// ArrayList<ShowDTO> getallshow
 	
 	
 	
