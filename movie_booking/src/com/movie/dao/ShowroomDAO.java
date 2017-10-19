@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.movie.dto.MemberDTO;
+import com.movie.dto.ShowroomDTO;
 import com.movie.util.DBManager;
 
 public class ShowroomDAO {
@@ -51,6 +52,37 @@ public class ShowroomDAO {
 		return srList;
 	}
 	
-	
+	public ShowroomDTO getShowroomByCode(String code) {
+		int result = -1;
+		ShowroomDTO srDTO = null;
+		
+		ResultSet rs = null;
+		String sql = "select * from mv_showroom";
+				
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				srDTO = new ShowroomDTO();
+				srDTO.setShowroomCapacity(rs.getInt("capacity"));
+				srDTO.setShowroomCode(code);
+				srDTO.setShowroomName(rs.getString("name"));
+				srDTO.setTheaterCode(rs.getString("th_code"));
+			} 
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+		
+		return srDTO;
+	}
 	
 }

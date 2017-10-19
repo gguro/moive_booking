@@ -30,15 +30,15 @@ public class ShowListAction implements IAction {
 		
 		// movie list 얻어옴
 		MovieDAO mvDAO = MovieDAO.getInstance();
-		List<MovieDTO> movieList = mvDAO.selectAllMovie();
+		//List<MovieDTO> movieList = mvDAO.selectAllMovie();
 		
 		// theater list 얻어옴
 		TheaterDAO thDAO = TheaterDAO.getInstance();
-		List<String> theaterList = thDAO.getTheatorList();
+		//List<String> theaterList = thDAO.getTheatorList();
 		
 		// showroom list 얻어옴
 		ShowroomDAO srDAO = ShowroomDAO.getInstance();
-		List<String> showroomList = srDAO.getShowroomList();
+		//List<String> showroomList = srDAO.getShowroomList();
 		
 		List<ShowFullDTO> shfDTOList = new ArrayList<ShowFullDTO>();
 		
@@ -46,7 +46,9 @@ public class ShowListAction implements IAction {
 			ShowFullDTO sfDTO = new ShowFullDTO();
 			sfDTO.setSH_CODE(show.getSH_CODE());
 			sfDTO.setSH_STATUS(show.getSH_STATUS());
-			/// 추가
+			sfDTO.setMvDTO(mvDAO.selectMovieByCode(show.getMV_CODE()));
+			sfDTO.setSrDTO(srDAO.getShowroomByCode(show.getSR_CODE()));
+			sfDTO.setThDTO(thDAO.getTheatterByCode(show.getTH_CODE()));
 			
 		}
 		

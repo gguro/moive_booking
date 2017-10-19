@@ -7,11 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
-
-import com.movie.dto.MemberDTO;
 import com.movie.dto.ShowDTO;
-import com.movie.dto.ShowFullDTO;
 import com.movie.util.DBManager;
 
 public class ShowDAO {
@@ -63,6 +59,7 @@ public class ShowDAO {
 		
 		
 	}
+	
 	
 	/*
 	

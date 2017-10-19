@@ -6,7 +6,7 @@ public class ShowFullDTO {
 	
 	private MovieDTO mvDTO;
 	private TheaterDTO thDTO;
-	private ShowroomDTO shDTO;
+	private ShowroomDTO srDTO;
 	
 	public String getSH_CODE() {
 		return SH_CODE;
@@ -32,11 +32,11 @@ public class ShowFullDTO {
 	public void setThDTO(TheaterDTO thDTO) {
 		this.thDTO = thDTO;
 	}
-	public ShowroomDTO getShDTO() {
-		return shDTO;
+	public ShowroomDTO getSrDTO() {
+		return srDTO;
 	}
-	public void setShDTO(ShowroomDTO shDTO) {
-		this.shDTO = shDTO;
+	public void setSrDTO(ShowroomDTO srDTO) {
+		this.srDTO = srDTO;
 	}
 	@Override
 	public String toString() {
@@ -44,7 +44,7 @@ public class ShowFullDTO {
 				+ ", SH_STATUS=" + SH_STATUS 
 				+ ", MV_NAME = " + mvDTO.getTitle() 
 				+ ", TH_NAME = " + thDTO.getTheaterName()
-				+ ", SH_NAME = " + shDTO.getShowroomName() + "]";
+				+ ", SR_NAME = " + srDTO.getShowroomName() + "]";
 	}
 	
 	

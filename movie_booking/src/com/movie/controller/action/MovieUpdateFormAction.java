@@ -16,9 +16,8 @@ public class MovieUpdateFormAction implements IAction {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String url = "/movie/movieUpdate.jsp";
-	    //String code = request.getParameter("code");
-		int code = 1;
-	    
+	    String code = request.getParameter("code");
+		
 		MovieDAO movieDAO = MovieDAO.getInstance();
 		MovieDTO mDto = movieDAO.selectMovieByCode(code);
 		request.setAttribute("movie", mDto);

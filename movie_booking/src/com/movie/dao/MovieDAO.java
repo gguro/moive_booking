@@ -151,7 +151,7 @@ public class MovieDAO {
 		}
 	}
 
-	public MovieDTO selectMovieByCode(int code) {
+	public MovieDTO selectMovieByCode(String code) {
 		String sql = "SELECT * FROM MV_MOVIE WHERE code=?";
 		MovieDTO Hmvo = null;
 		Connection conn = null;
@@ -161,7 +161,7 @@ public class MovieDAO {
 		try {
 			conn = DBManager.getConnection();
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, code);
+			psmt.setString(1, code);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				Hmvo = new MovieDTO();
