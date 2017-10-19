@@ -36,5 +36,87 @@ insert into mv_movie values ('A002', '지오스톰', '딘 데블린', '제라드
 지구의 대재앙이 시작됐다!'); 
 
 
+==================================
+==		 mv_theater 테이블  		==
+==================================
 
+/* 극장 */
+DROP TABLE MV_THEATER 
+	CASCADE CONSTRAINTS;
+
+
+/* 극장 */
+CREATE TABLE MV_THEATER (
+	TH_CODE VARCHAR2(4) NOT NULL, /* 극장코드 */
+	TH_NAME VARCHAR2(30), /* 이름 */
+	TH_LOCATION VARCHAR2(100) /* 위치 */
+);
+
+COMMENT ON TABLE MV_THEATER IS '극장';
+
+COMMENT ON COLUMN MV_THEATER.TH_CODE IS '극장코드';
+
+COMMENT ON COLUMN MV_THEATER.TH_NAME IS '이름';
+
+COMMENT ON COLUMN MV_THEATER.TH_LOCATION IS '위치';
+
+// 예제 데이터
+insert into mv_theater values('TH01', '강남CGV', '강남');
+
+
+==================================
+==		 mv_shoroom 테이블  		==
+==================================
+
+/* 상영관 */
+DROP TABLE MV_SHOWROOM 
+	CASCADE CONSTRAINTS;
+
+/* 상영관 */
+CREATE TABLE MV_SHOWROOM (
+	TH_CODE VARCHAR2(4) NOT NULL, /* 극장코드 */
+	SR_CODE VARCHAR2(4) NOT NULL, /* 상영관코드 */
+	SR_NAME VARCHAR2(30), /* 이름 */
+	SR_CAPACITY NUMBER(3) /* 좌석수 */
+);
+
+COMMENT ON TABLE MV_SHOWROOM IS '상영관';
+
+COMMENT ON COLUMN MV_SHOWROOM.TH_CODE IS '극장코드';
+
+COMMENT ON COLUMN MV_SHOWROOM.SR_CODE IS '상영관코드';
+
+COMMENT ON COLUMN MV_SHOWROOM.SR_NAME IS '이름';
+
+COMMENT ON COLUMN MV_SHOWROOM.SR_CAPACITY IS '좌석수';
+
+// 예제 데이터
+insert into mv_showroom values('TH01', 'SH01', '1관', 25);
+
+
+
+==================================
+==		 mv_BOOK 테이블  		==
+==================================
+
+/* 영화예약 */
+CREATE TABLE MV_BOOK (
+	BK_CODE VARCHAR2(4) NOT NULL, /* 예약번호 */
+	USERID VARCHAR2(10) NOT NULL, /* 아이디 */
+	TK_CODE VARCHAR2(4) NOT NULL, /* 티켓번호 */
+	BK_DATE DATE, /* 예약일 */
+	BK_STATUS VARCHAR2(30) /* 상태 */
+);
+
+COMMENT ON TABLE MV_BOOK IS '영화예약';
+
+COMMENT ON COLUMN MV_BOOK.BK_CODE IS '예약번호';
+
+COMMENT ON COLUMN MV_BOOK.USERID IS '아이디';
+
+COMMENT ON COLUMN MV_BOOK.TK_CODE IS '티켓번호';
+
+COMMENT ON COLUMN MV_BOOK.BK_DATE IS '예약일';
+
+COMMENT ON COLUMN MV_BOOK.BK_STATUS IS '상태';
 

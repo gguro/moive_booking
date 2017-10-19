@@ -14,4 +14,13 @@
 	
 </head>
 <body>
+<div>
+	<a href="MemberFC?command=index">홈</a> | 
+	<a href="MemberFC?command=myinfo">내정보</a> | 
+	<a href="MemberFC?command=showlist">상영정보리스트</a> | 
+	<a href="MemberFC?command=showwrite">상영정보 등록</a> |
+	<a href="MemberFC?command=movielist">영화정보리스트</a> |
+	<a href="MemberFC?command=movielist">영화정보등록</a> 
+	<hr>
+</div>
 
