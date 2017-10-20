@@ -25,6 +25,7 @@
 	<a href="MovieFC?command=movieWriteForm">영화등록</a> |
 	<br>
 	상영 관련 페이지>>
+	<a href="ShowFC?command=showviewlist">상영리스트2</a> |
 	<a href="ShowFC?command=getshowlist">상영리스트</a> |
 	<a href="ShowFC?command=getshowupdateform">상영등록</a>
 	<br>

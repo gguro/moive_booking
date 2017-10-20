@@ -9,6 +9,7 @@ import com.movie.controller.action.MemberLoginAction;
 import com.movie.controller.action.MemberLoginFormAction;
 import com.movie.controller.action.MemberLogoutAction;
 import com.movie.controller.action.ShowUpdateFormAction;
+import com.movie.controller.action.ShowviewListAction;
 import com.movie.controller.action.ShowListAction;
 
 public class ShowActionFactory {
@@ -30,7 +31,9 @@ public class ShowActionFactory {
 			action = new ShowUpdateFormAction();
 		} else if(command.equals("getshowlist")) {
 			action = new ShowListAction();
-		} 
+		} else if(command.equals("showviewlist")) {
+			action = new ShowviewListAction();
+		}
 		return action;
 	}
 }

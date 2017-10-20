@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.movie.controller.action.IAction;
 
 /**
- * Servlet implementation class MemberFC
+ * Servlet implementation class ShowFC
  */
 @WebServlet("/ShowFC")
 public class ShowFC extends HttpServlet {
@@ -34,7 +34,7 @@ public class ShowFC extends HttpServlet {
 		// command = board_list
 		String command = request.getParameter("command");
 		
-		System.out.println("MemberFC - cmd : " + command);
+		System.out.println("ShowFC - cmd : " + command);
 		ShowActionFactory maf = ShowActionFactory.getInstance();
 		
 		IAction action = maf.getAction(command);
