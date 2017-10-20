@@ -7,29 +7,25 @@
       <div class="item_form">
         <form class="" action="MovieFC?command=movieUpdate" enctype="multipart/form-data" method="post">
           <div class="row">
-          <input type="hidden"  name="code" value="${movie.code}">
+          <input type="hidden"  name="mv_code" value="${movie.mv_code}">
             <span>제목</span>
-            <input type="text" name="title" value="${movie.title}" >
-          </div>
-          <div class="row">
-            <span>평점</span>
-            <input type="text" name="grade" value="${movie.grade}" >
+            <input type="text" name="mv_title" value="${movie.mv_title}" >
           </div>
           <div class="row">
             <span>감독</span>
-            <input type="text" name="director" value="${movie.director}">
+            <input type="text" name="mv_director" value="${movie.mv_director}">
           </div>
           <div class="row">
             <span>배우</span>
-            <input type="text" name="actor" value="${movie.actor}">
+            <input type="text" name="mv_cast" value="${movie.mv_cast}">
           </div>
           <div class="row">
             <span>줄거리</span>
-            <textarea name="synopsis">${movie.synopsis}</textarea>
+            <textarea name="mv_synopsis">${movie.mv_synopsis}</textarea>
           </div>
           <div class="row">
             <span>첨부파일</span>
-            <input type="file" name="image" >
+            <input type="file" name="mv_imglink1" >
           </div>
           <div class="row">
             <input type="submit" name="" value="수정">

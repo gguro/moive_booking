@@ -10,13 +10,13 @@
 
          <c:forEach items="${mlist}" var="movie">
           <li>
-            <img src="images/${movie.image}" alt="">
+            <img src="images/${movie.mv_imglink1}" alt="">
             <div class="des">
               <div class="title">
-              	${movie.title}
+              	${movie.mv_title}
               </div>
               <div class="btn_wrap">
-                <a href="/movie_booking/MovieFC?command=movieDetail&code=${movie.code}">상세정보</a>
+                <a href="MovieFC?command=movieDetail&mv_code=${movie.mv_code}">상세정보</a>
                 <a href="">예약</a>
               </div>
             </div>
@@ -24,7 +24,6 @@
            </c:forEach>
         </ul>
       </div>
-      <a href="/movie_booking/MovieFC?command=movieWriteForm">글쓰기</a>
     </div>
   </div>
   

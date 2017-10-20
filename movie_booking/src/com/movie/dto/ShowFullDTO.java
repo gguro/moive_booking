@@ -42,7 +42,7 @@ public class ShowFullDTO {
 	public String toString() {
 		return "ShowDTO [SH_CODE=" + SH_CODE 
 				+ ", SH_STATUS=" + SH_STATUS 
-				+ ", MV_NAME = " + mvDTO.getTitle() 
+				+ ", MV_NAME = " + mvDTO.getMv_title() 
 				+ ", TH_NAME = " + thDTO.getTheaterName()
 				+ ", SR_NAME = " + srDTO.getShowroomName() + "]";
 	}

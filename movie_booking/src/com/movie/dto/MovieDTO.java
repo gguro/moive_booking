@@ -1,63 +1,58 @@
 package com.movie.dto;
 
 public class MovieDTO {
-	private String code;//코드번호
-	private String title;//영화제목
-	private String grade;//평점
-	private String director;//감독 
-	private String actor;//배우
-	private String synopsis;//줄거리
-	private String image;//이미지경로
 	
-	public String getTitle() {
-		return title;
+	private String mv_code;//코드번호
+	private String mv_title;//영화제목
+	private String mv_director;//감독 
+	private String mv_cast;//배우
+	private String mv_imglink1;//이미지경로
+	private String mv_synopsis;//줄거리
+	public String getMv_code() {
+		return mv_code;
 	}
-	public String getImage() {
-		return image;
+	public void setMv_code(String mv_code) {
+		this.mv_code = mv_code;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public String getMv_title() {
+		return mv_title;
 	}
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getGrade() {
-		return grade;
-	}
-	public void setGrade(String grade) {
-		this.grade = grade;
+	public void setMv_title(String mv_title) {
+		this.mv_title = mv_title;
 	}
 
-	public String getDirector() {
-		return director;
+	public String getMv_director() {
+		return mv_director;
 	}
-	public void setDirector(String director) {
-		this.director = director;
+	public void setMv_director(String mv_director) {
+		this.mv_director = mv_director;
 	}
-	public String getActor() {
-		return actor;
+	public String getMv_cast() {
+		return mv_cast;
 	}
-	public void setActor(String actor) {
-		this.actor = actor;
+	public void setMv_cast(String mv_cast) {
+		this.mv_cast = mv_cast;
 	}
-	public String getSynopsis() {
-		return synopsis;
+	public String getMv_imglink1() {
+		return mv_imglink1;
 	}
-	public void setSynopsis(String synopsis) {
-		this.synopsis = synopsis;
+	public void setMv_imglink1(String mv_imglink1) {
+		this.mv_imglink1 = mv_imglink1;
+	}
+	public String getMv_synopsis() {
+		return mv_synopsis;
+	}
+	public void setMv_synopsis(String mv_synopsis) {
+		this.mv_synopsis = mv_synopsis;
 	}
 	@Override
 	public String toString() {
-		return "MovieDTO [code=" + code + ", title=" + title + ", grade=" + grade + ", director=" + director
-				+ ", actor=" + actor + ", synopsis=" + synopsis + ", image=" + image + "]";
+		return "MovieDTO [mv_code=" + mv_code + ", mv_title=" + mv_title + ", mv_director=" + mv_director + ", mv_cast="
+				+ mv_cast + ", mv_imglink1=" + mv_imglink1 + ", mv_synopsis=" + mv_synopsis + "]";
 	}
+
+
 	
-	
+
 	 
 }

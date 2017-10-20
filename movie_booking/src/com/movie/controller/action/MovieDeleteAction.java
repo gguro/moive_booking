@@ -13,10 +13,10 @@ public class MovieDeleteAction implements IAction {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String code = request.getParameter("code");
-		System.out.println(code);
+		String mv_code = request.getParameter("mv_code");
+
 		MovieDAO mDao=MovieDAO.getInstance();
-		mDao.deleteMovie(code);
+		mDao.deleteMovie(mv_code);
 		
 		new MovieListAction().execute(request, response);
 	}

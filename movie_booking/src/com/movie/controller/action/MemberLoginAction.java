@@ -38,6 +38,7 @@ public class MemberLoginAction implements IAction {
 			HttpSession session = request.getSession();
 			MemberDTO memberDTO = new MemberDTO();
 			memberDTO = mDAO.getMember(userid);
+			session.setAttribute("loginUser", memberDTO);
 			session.setAttribute("MemberDTO", memberDTO);
 			
 		} else if (result == 0) {

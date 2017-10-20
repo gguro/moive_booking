@@ -17,9 +17,10 @@ public class MovieDetailAction implements IAction {
 		// TODO Auto-generated method stub
 		String url = "movie/movieDetail.jsp";
 		
-		String code=request.getParameter("code");
+		String mv_code=request.getParameter("mv_code");
 		MovieDAO movieDAO = MovieDAO.getInstance();
-		MovieDTO mlist = movieDAO.selectMovieByTitle(code);
+		MovieDTO mlist = movieDAO.selectMovieByTitle(mv_code);
+	
 		request.setAttribute("movie", mlist);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

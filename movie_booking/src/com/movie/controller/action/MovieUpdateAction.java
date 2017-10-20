@@ -2,7 +2,6 @@ package com.movie.controller.action;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -27,27 +26,24 @@ public class MovieUpdateAction implements IAction {
 		MultipartRequest multi 
 		= new MultipartRequest(request, path, sizeLimit,
 				encType, new DefaultFileRenamePolicy());
-		String code = multi.getParameter("code");
-		String title = multi.getParameter("title");
-		String grade = multi.getParameter("grade");
-		String director = multi.getParameter("director");
-		String actor = multi.getParameter("actor");
-		String synopsis = multi.getParameter("synopsis");
-		String image = multi.getFilesystemName("image");
-		
-		if (image == null) {
-			image = multi.getParameter("nonmakeImg");
+		String mv_code = multi.getParameter("mv_code");
+		String mv_title = multi.getParameter("mv_title");
+		String mv_director = multi.getParameter("mv_director");
+		String mv_cast = multi.getParameter("mv_cast");
+		String mv_imglink1 = multi.getFilesystemName("mv_imglink1");
+		String mv_synopsis = multi.getParameter("mv_synopsis");
+		if (mv_imglink1 == null) {
+			mv_imglink1 = multi.getParameter("nonmakeImg");
 		}
 
 		MovieDTO movieDTO =  new MovieDTO();
 	     
-		  movieDTO.setCode(code);
-		  movieDTO.setTitle(title);
-	      movieDTO.setGrade(grade);
-	      movieDTO.setDirector(director);
-	      movieDTO.setActor(actor);
-	      movieDTO.setSynopsis(synopsis);
-	      movieDTO.setImage(image);
+		  movieDTO.setMv_code(mv_code);
+		  movieDTO.setMv_title(mv_title);
+	      movieDTO.setMv_director(mv_director);
+	      movieDTO.setMv_cast(mv_cast);
+	      movieDTO.setMv_imglink1(mv_imglink1);
+	      movieDTO.setMv_synopsis(mv_synopsis);
 
 	      MovieDAO mDao = MovieDAO.getInstance();
 

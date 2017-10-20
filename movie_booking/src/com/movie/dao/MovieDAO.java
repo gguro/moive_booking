@@ -23,7 +23,7 @@ public class MovieDAO {
 
 	// 영화 목록을 출력한다.
 	public ArrayList<MovieDTO> selectAllMovie() {
-		String sql = "SELECT * FROM MV_MOVIE ORDER BY code DESC";
+		String sql = "SELECT * FROM MV_MOVIE ORDER BY mv_code DESC";
 		ArrayList<MovieDTO> list = new ArrayList<MovieDTO>();// 영화목록
 		Connection conn = null;
 		Statement stmt = null;
@@ -36,13 +36,12 @@ public class MovieDAO {
 
 			while (rs.next()) {
 				MovieDTO Hmvo = new MovieDTO();// 영화(VO)
-				Hmvo.setCode(rs.getString("code"));
-				Hmvo.setTitle(rs.getString("title"));
-				Hmvo.setGrade(rs.getString("grade"));
-				Hmvo.setDirector(rs.getString("director"));
-				Hmvo.setActor(rs.getString("actor"));
-				Hmvo.setSynopsis(rs.getString("synopsis"));
-				Hmvo.setImage(rs.getString("MV_IMGLINK1"));
+				Hmvo.setMv_code(rs.getString("mv_code"));
+				Hmvo.setMv_title(rs.getString("mv_title"));
+			    Hmvo.setMv_director(rs.getString("mv_director"));
+				Hmvo.setMv_cast(rs.getString("mv_cast"));
+				Hmvo.setMv_imglink1(rs.getString("mv_imglink1"));
+				Hmvo.setMv_synopsis(rs.getString("mv_synopsis"));
 				list.add(Hmvo);// 영화목록에 영화추가
 			}
 		} catch (Exception e) {
@@ -56,19 +55,18 @@ public class MovieDAO {
 	// 전달인자로 받은 VO 객체를 board 테이블에 삽입한다.
 
 	public void insertMovie(MovieDTO Hmvo) {
-		String sql = "INSERT INTO MV_MOVIE VALUES(MV_MOVIE_SEQ.NEXTVAL,?,?,?,?,?,?)";
+		String sql = "INSERT INTO MV_MOVIE VALUES(MV_MOVIE_SEQ.NEXTVAL,?,?,?,?,?)";
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		try {
 			conn = DBManager.getConnection();
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, Hmvo.getTitle());
-			psmt.setString(2, Hmvo.getGrade());
-			psmt.setString(3, Hmvo.getDirector());
-			psmt.setString(4, Hmvo.getActor());
-			psmt.setString(5, Hmvo.getSynopsis());
-			psmt.setString(6, Hmvo.getImage());
-			psmt.executeUpdate();
+			psmt.setString(1, Hmvo.getMv_title());
+			psmt.setString(2, Hmvo.getMv_director());
+			psmt.setString(3, Hmvo.getMv_cast());
+			psmt.setString(4, Hmvo.getMv_imglink1());
+			psmt.setString(5, Hmvo.getMv_synopsis());
+		    psmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -79,8 +77,8 @@ public class MovieDAO {
 	}
 
 	// 영화제목으로 영화를 찾는다.
-	public MovieDTO selectMovieByTitle(String code) {
-		String sql = "SELECT * FROM MV_MOVIE WHERE code=?";
+	public MovieDTO selectMovieByTitle(String mv_code) {
+		String sql = "SELECT * FROM MV_MOVIE WHERE mv_code=?";
 		MovieDTO Hmvo = null;
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -88,17 +86,17 @@ public class MovieDAO {
 		try {
 			conn = DBManager.getConnection();
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, code);
+			psmt.setString(1, mv_code);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				Hmvo = new MovieDTO();
-				Hmvo.setCode(rs.getString("code"));
-				Hmvo.setTitle(rs.getString("title"));
-				Hmvo.setGrade(rs.getString("grade"));
-				Hmvo.setDirector(rs.getString("director"));
-				Hmvo.setActor(rs.getString("actor"));
-				Hmvo.setSynopsis(rs.getString("synopsis"));
-				Hmvo.setImage(rs.getString("Image"));
+				Hmvo.setMv_code(rs.getString("mv_code"));
+				Hmvo.setMv_title(rs.getString("mv_title"));
+				Hmvo.setMv_director(rs.getString("mv_director"));
+				Hmvo.setMv_cast(rs.getString("mv_cast"));
+				Hmvo.setMv_imglink1(rs.getString("mv_imglink1"));
+				Hmvo.setMv_synopsis(rs.getString("mv_synopsis"));
+				
 			}
 
 		} catch (Exception e) {
@@ -111,8 +109,8 @@ public class MovieDAO {
 
 
 	// 영화코드로 영화를 찾는다.
-	public MovieDTO selectMovieByCode(String code) {
-		String sql = "SELECT * FROM MV_MOVIE WHERE code=?";
+	public MovieDTO selectMovieByCode(String mv_code) {
+		String sql = "SELECT * FROM MV_MOVIE WHERE mv_code=?";
 		MovieDTO Hmvo = null;
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -120,17 +118,16 @@ public class MovieDAO {
 		try {
 			conn = DBManager.getConnection();
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, code);
+			psmt.setString(1, mv_code);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				Hmvo = new MovieDTO();
-				Hmvo.setCode(rs.getString("code"));
-				Hmvo.setTitle(rs.getString("title"));
-				Hmvo.setGrade(rs.getString("grade"));
-				Hmvo.setDirector(rs.getString("director"));
-				Hmvo.setActor(rs.getString("actor"));
-				Hmvo.setSynopsis(rs.getString("synopsis"));
-				Hmvo.setImage(rs.getString("Image"));
+				Hmvo.setMv_code(rs.getString("mv_code"));
+				Hmvo.setMv_title(rs.getString("mv_title"));
+				Hmvo.setMv_director(rs.getString("mv_director"));
+				Hmvo.setMv_cast(rs.getString("mv_cast"));
+				Hmvo.setMv_imglink1(rs.getString("mv_imglink1"));
+				Hmvo.setMv_synopsis(rs.getString("mv_synopsis"));
 			}
 
 		} catch (Exception e) {
@@ -142,14 +139,14 @@ public class MovieDAO {
 	}
 	
 	// 영화를 삭제한다.
-	public void deleteMovie(String code) {
-		String sql = "DELETE FROM MV_MOVIE WHERE code=?";
+	public void deleteMovie(String mv_code) {
+		String sql = "DELETE FROM MV_MOVIE WHERE mv_code=?";
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		try {
 			conn = DBManager.getConnection();
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, code);
+			psmt.setString(1, mv_code);
 			psmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -160,19 +157,18 @@ public class MovieDAO {
 
 	// 영화정보를 수정한다.
 	public void updateMovie(MovieDTO Hmvo) {
-		String sql = "UPDATE MV_MOVIE SET title=?,grade=?,director=?,actor=?,synopsis=?, image=? WHERE code=?";
+		String sql = "UPDATE MV_MOVIE SET mv_title=?,mv_director=?,mv_cast=?,mv_imglink1=?,mv_synopsis=? WHERE mv_code=?";
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		try {
 			conn = DBManager.getConnection();
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, Hmvo.getTitle());
-			psmt.setString(2, Hmvo.getGrade());
-			psmt.setString(3, Hmvo.getDirector());
-			psmt.setString(4, Hmvo.getActor());
-			psmt.setString(5, Hmvo.getSynopsis());
-			psmt.setString(6, Hmvo.getImage());
-			psmt.setString(7, Hmvo.getCode());
+			psmt.setString(1, Hmvo.getMv_title());
+			psmt.setString(2, Hmvo.getMv_director());
+			psmt.setString(3, Hmvo.getMv_cast());
+			psmt.setString(4, Hmvo.getMv_imglink1());
+			psmt.setString(5, Hmvo.getMv_synopsis());
+			psmt.setString(6, Hmvo.getMv_code());
 			psmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
