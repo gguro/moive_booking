@@ -18,20 +18,8 @@ public class MovieWriteFormAction implements IAction {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "/movie/movieWriter.jsp";
-		
-		MovieDTO movieDTO = new MovieDTO();
-		
-		movieDTO.setTitle(request.getParameter("title"));
-		movieDTO.setGrade(request.getParameter("grade"));
-		movieDTO.setDirector(request.getParameter("director"));
-		movieDTO.setActor(request.getParameter("actor"));
-		movieDTO.setSynopsis(request.getParameter("synopsis"));
-		movieDTO.setImage(request.getParameter("image"));
-		
-		MovieDAO mDao = MovieDAO.getInstance();
-		mDao.insertMovie(movieDTO);
-		
+		String url = "/movie/movieWrite.jsp";
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}

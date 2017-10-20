@@ -30,7 +30,7 @@
 							onclick="location='MemberFC?command=join_form'">
 							
 						<input type="button" value="아이디/비밀번호 찾기" class="submit"
-							onclick="location='MemberFC?command=find_id_form'">		
+							onclick="location='MemberFC?command=find_form'">		
 					</div>	
 				</td>
 			</tr>

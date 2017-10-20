@@ -18,7 +18,6 @@ public class MovieWriteAction implements IAction {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "/movie/movieWriter.jsp";
 		
 		MovieDTO movieDTO = new MovieDTO();
 		
@@ -32,8 +31,7 @@ public class MovieWriteAction implements IAction {
 		MovieDAO mDao = MovieDAO.getInstance();
 		mDao.insertMovie(movieDTO);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
+		response.sendRedirect("MovieFC?command=movieList");
 	}
 
 }

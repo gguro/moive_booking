@@ -7,21 +7,24 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.movie.dao.MovieDAO;
-import com.movie.dto.MovieDTO;
+import com.movie.dao.MemberDAO;
+import com.movie.dto.MemberDTO;
 
-public class MovieUpdateFormAction implements IAction {
+public class MemberUpdateAction implements IAction {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "/movie/movieUpdate.jsp";
-	    String code = request.getParameter("code");
-		
-		MovieDAO movieDAO = MovieDAO.getInstance();
-		MovieDTO mDto = movieDAO.selectMovieByTitle(code);
-		request.setAttribute("movie", mDto);
-	   
+		String url = "/member/login.jsp";
+		MemberDTO mDTO = new MemberDTO();
+		mDTO.setUserid(request.getParameter("userid"));
+		mDTO.setPwd(request.getParameter("pwd"));
+		mDTO.setEmail(request.getParameter("email"));
+		mDTO.setPhone(request.getParameter("phone"));
+		MemberDAO mDao = MemberDAO.getInstance();
+		mDao.updateMember(mDTO);
+
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}

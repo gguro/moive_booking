@@ -49,6 +49,29 @@ function idCheck() {
 	"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=450, height=200");
 	
 }
+function find_email_Check(){
+	if (document.frm.email.value.length == 0) {
+		alert("이메일을 입력해 주세요.");
+		document.frm.email.focuse();
+		return;
+	}
+	
+	var url = "MemberFC?command=find_id_check_form&email=" + document.frm.email.value;
+	window.open(url, "_blank_1",
+	"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=450, height=200");
+}
+function find_id_Check(){
+	if (document.frm.userid.value.length == 0) {
+		alert("ID을 입력해 주세요.");
+		document.frm.userid.focuse();
+		return;
+	}
+	
+	var url = "MemberFC?command=find_pwd_check_form&userid=" + document.frm.userid.value;
+	window.open(url, "_blank_2",
+	"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=450, height=200");
+}
+
 
 function joinCheck() {
 	if (document.frm.userid.value.length < 4) {
@@ -82,4 +105,8 @@ function joinCheck() {
 	}
 	
 	return true;
+}
+
+function open_win(url, name) {
+	window.open(url, name, "width=500, height=230");
 }

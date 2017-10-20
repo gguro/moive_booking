@@ -3,62 +3,61 @@ package com.movie.controller.action;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.movie.dao.MovieDAO;
 import com.movie.dto.MovieDTO;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 
 public class MovieUpdateAction implements IAction {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "/movie/movieUpdate.jsp";
 		
-//		String title=request.getParameter("code");
-//		
-//		MovieDTO movieDTO =  new MovieDTO();
-//		
-//		movieDTO.setCode(Integer.parseInt(request.getParameter("code")));
-//		movieDTO.setTitle(request.getParameter("title"));
-//		movieDTO.setGrade(request.getParameter("grade"));
-//		movieDTO.setDirector(request.getParameter("director"));
-//		movieDTO.setActor(request.getParameter("actor"));
-//		movieDTO.setSynopsis(request.getParameter("synopsis"));
-//		movieDTO.setImage(request.getParameter("image"));
-//		System.out.println(request.getParameter("code"));
-//		System.out.println(movieDTO);
-//		System.out.println(movieDTO.getTitle());
-//		
-//		MovieDAO mDAO = MovieDAO.getInstance();
-//		mDAO.updateMovie(movieDTO);
-//		
-//		MovieDTO mlist = mDAO.selectMovieByTitle(title);
-//		
-//		request.setAttribute("movie", mlist);
+		ServletContext context = request.getServletContext();
+        String path = context.getRealPath("images");
+		String encType = "UTF-8";
+		int sizeLimit = 20 * 1024 * 1024; //20M
+		MultipartRequest multi 
+		= new MultipartRequest(request, path, sizeLimit,
+				encType, new DefaultFileRenamePolicy());
+		String code = multi.getParameter("code");
+		String title = multi.getParameter("title");
+		String grade = multi.getParameter("grade");
+		String director = multi.getParameter("director");
+		String actor = multi.getParameter("actor");
+		String synopsis = multi.getParameter("synopsis");
+		String image = multi.getFilesystemName("image");
+		
+		if (image == null) {
+			image = multi.getParameter("nonmakeImg");
+		}
+
 		MovieDTO movieDTO =  new MovieDTO();
 	     
-		  movieDTO.setTitle(request.getParameter("title"));
-	      movieDTO.setGrade(request.getParameter("grade"));
-	      movieDTO.setDirector(request.getParameter("director"));
-	      movieDTO.setActor(request.getParameter("actor"));
-	      movieDTO.setSynopsis(request.getParameter("synopsis"));
-	      movieDTO.setImage(request.getParameter("image"));
+		  movieDTO.setCode(code);
+		  movieDTO.setTitle(title);
+	      movieDTO.setGrade(grade);
+	      movieDTO.setDirector(director);
+	      movieDTO.setActor(actor);
+	      movieDTO.setSynopsis(synopsis);
+	      movieDTO.setImage(image);
 
-	      String title=request.getParameter("code");
-	      
+	      MovieDAO mDao = MovieDAO.getInstance();
 
-	      MovieDAO mDAO = MovieDAO.getInstance();
-	      MovieDTO mlist = mDAO.selectMovieByTitle(title);
-	      mDAO.updateMovie(movieDTO);
+	      mDao.updateMovie(movieDTO);
 	      
-	      request.setAttribute("movie", mlist);
+	      response.sendRedirect("MovieFC?command=movieList");
 		
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
+	      
 	}
+
+
 
 }

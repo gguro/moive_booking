@@ -4,8 +4,14 @@
 
 
 <div id="wrapper">
+	<c:if test="${loginUser.name != null}">
+		<a>${loginUser.name}님.</a>
+		<a href="MemberFC?command=logout">logout</a>
+	</c:if>
 	영화 예매 서비스
+	<c:if test="${loginUser.name == null}">
 	<a href="MemberFC?command=login_form">로그인</a> 
+	</c:if>
 </div> 
 
 

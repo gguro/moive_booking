@@ -2,7 +2,6 @@ package com.movie.controller;
 
 import com.movie.controller.action.IAction;
 import com.movie.controller.action.MovieDeleteAction;
-import com.movie.controller.action.MovieDeleteFormAction;
 import com.movie.controller.action.MovieDetailAction;
 import com.movie.controller.action.MovieListAction;
 import com.movie.controller.action.MovieUpdateAction;
@@ -37,8 +36,6 @@ public class MovieActionFactory {
 				action = new MovieUpdateFormAction();
 			} else if (command.equals("movieUpdate")){
 				action = new MovieUpdateAction();
-			} else if (command.equals("movieDeleteForm")){
-				action = new MovieDeleteFormAction();
 			}else if (command.equals("movieDelete")){
 				action = new MovieDeleteAction();
 			}

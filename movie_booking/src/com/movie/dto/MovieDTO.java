@@ -1,7 +1,7 @@
 package com.movie.dto;
 
 public class MovieDTO {
-	private int code;//코드번호
+	private String code;//코드번호
 	private String title;//영화제목
 	private String grade;//평점
 	private String director;//감독 
@@ -17,10 +17,10 @@ public class MovieDTO {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	public int getCode() {
+	public String getCode() {
 		return code;
 	}
-	public void setCode(int code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 	public void setTitle(String title) {

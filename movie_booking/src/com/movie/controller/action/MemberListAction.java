@@ -1,27 +1,29 @@
 package com.movie.controller.action;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.movie.dao.MovieDAO;
-import com.movie.dto.MovieDTO;
+import com.movie.dao.MemberDAO;
+import com.movie.dto.MemberDTO;
 
-public class MovieUpdateFormAction implements IAction {
+
+
+public class MemberListAction implements IAction {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String url = "/movie/movieUpdate.jsp";
-	    String code = request.getParameter("code");
+		String url = "/member/memberlist.jsp";
+		MemberDAO mDao = MemberDAO.getInstance();
 		
-		MovieDAO movieDAO = MovieDAO.getInstance();
-		MovieDTO mDto = movieDAO.selectMovieByTitle(code);
-		request.setAttribute("movie", mDto);
-	   
+		List<MemberDTO> memberList = mDao.selectAllMembers();
+		
+		request.setAttribute("memberList", memberList);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}

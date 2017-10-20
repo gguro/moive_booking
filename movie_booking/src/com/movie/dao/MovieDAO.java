@@ -21,8 +21,6 @@ public class MovieDAO {
 		return instance;
 	}
 
-
-	
 	// 영화 목록을 출력한다.
 	public ArrayList<MovieDTO> selectAllMovie() {
 		String sql = "SELECT * FROM MV_MOVIE ORDER BY code DESC";
@@ -38,7 +36,7 @@ public class MovieDAO {
 
 			while (rs.next()) {
 				MovieDTO Hmvo = new MovieDTO();// 영화(VO)
-				Hmvo.setCode(rs.getInt("code"));
+				Hmvo.setCode(rs.getString("code"));
 				Hmvo.setTitle(rs.getString("title"));
 				Hmvo.setGrade(rs.getString("grade"));
 				Hmvo.setDirector(rs.getString("director"));
@@ -94,7 +92,7 @@ public class MovieDAO {
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				Hmvo = new MovieDTO();
-				Hmvo.setCode(rs.getInt("code"));
+				Hmvo.setCode(rs.getString("code"));
 				Hmvo.setTitle(rs.getString("title"));
 				Hmvo.setGrade(rs.getString("grade"));
 				Hmvo.setDirector(rs.getString("director"));
@@ -111,15 +109,47 @@ public class MovieDAO {
 		return Hmvo;
 	}
 
+
+	// 영화코드로 영화를 찾는다.
+	public MovieDTO selectMovieByCode(String code) {
+		String sql = "SELECT * FROM MV_MOVIE WHERE code=?";
+		MovieDTO Hmvo = null;
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DBManager.getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, code);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				Hmvo = new MovieDTO();
+				Hmvo.setCode(rs.getString("code"));
+				Hmvo.setTitle(rs.getString("title"));
+				Hmvo.setGrade(rs.getString("grade"));
+				Hmvo.setDirector(rs.getString("director"));
+				Hmvo.setActor(rs.getString("actor"));
+				Hmvo.setSynopsis(rs.getString("synopsis"));
+				Hmvo.setImage(rs.getString("Image"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, psmt, rs);
+		}
+		return Hmvo;
+	}
+	
 	// 영화를 삭제한다.
-	public void deleteMovie(String title) {
-		String sql = "DELETE FROM MV_MOVIE WHERE title=?";
+	public void deleteMovie(String code) {
+		String sql = "DELETE FROM MV_MOVIE WHERE code=?";
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		try {
 			conn = DBManager.getConnection();
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, title);
+			psmt.setString(1, code);
 			psmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -142,44 +172,13 @@ public class MovieDAO {
 			psmt.setString(4, Hmvo.getActor());
 			psmt.setString(5, Hmvo.getSynopsis());
 			psmt.setString(6, Hmvo.getImage());
-			psmt.setInt(7, Hmvo.getCode());
+			psmt.setString(7, Hmvo.getCode());
 			psmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(conn, psmt);
 		}
-	}
-
-	public MovieDTO selectMovieByCode(String code) {
-		String sql = "SELECT * FROM MV_MOVIE WHERE code=?";
-		MovieDTO Hmvo = null;
-		Connection conn = null;
-		PreparedStatement psmt = null;
-		ResultSet rs = null;
-
-		try {
-			conn = DBManager.getConnection();
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, code);
-			rs = psmt.executeQuery();
-			if (rs.next()) {
-				Hmvo = new MovieDTO();
-				Hmvo.setCode(rs.getInt("code"));
-				Hmvo.setTitle(rs.getString("title"));
-				Hmvo.setGrade(rs.getString("grade"));
-				Hmvo.setDirector(rs.getString("director"));
-				Hmvo.setActor(rs.getString("actor"));
-				Hmvo.setSynopsis(rs.getString("synopsis"));
-				Hmvo.setImage(rs.getString("Image"));
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DBManager.close(conn, psmt, rs);
-		}
-		return Hmvo;
 	}
 
 }
