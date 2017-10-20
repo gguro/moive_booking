@@ -19,21 +19,29 @@ insert into mv_member values('zzzz', 'zzzz', 'zzzz', 'zzzz', 'zzzz', 'admin');
 ==================================
 ==		 mv_movie 테이블  			==
 ==================================
-create table mv_movie(
-	code		varchar2(4),
-	name		varchar2(30),
-	director	varchar2(30),
-	cast		varchar2(60),
-	imglink1	varchar2(100),
-	imglink2	varchar2(100),
-	description	varchar2(300)
+
+/* 영화 */
+CREATE TABLE MV_MOVIE (
+	MV_CODE VARCHAR2(4) NOT NULL, /* 영화코드 */
+	MV_TITLE VARCHAR2(30), /* 이름 */
+	MV_DIRECTOR VARCHAR2(30), /* 감독 */
+	MV_CAST VARCHAR2(60), /* 출연 */
+	MV_IMGLINK1 VARCHAR2(100), /* 이미지링크1 */
+	MV_SYNOPSIS VARCHAR2(300) /* 상세설명 */
 );
 
--- 예제 자료
-insert into mv_movie values ('A001', '범죄도시', '강윤성', '마동석, 윤계상', '', '', '', 'pause', '오늘 밤, 다 쓸어버린다'); 
+COMMENT ON TABLE MV_MOVIE IS '영화';
+COMMENT ON COLUMN MV_MOVIE.MV_CODE IS '영화코드';
+COMMENT ON COLUMN MV_MOVIE.MV_TITLE IS '이름';
+COMMENT ON COLUMN MV_MOVIE.MV_DIRECTOR IS '감독';
+COMMENT ON COLUMN MV_MOVIE.MV_CAST IS '출연';
+COMMENT ON COLUMN MV_MOVIE.MV_IMGLINK1 IS '이미지링크1';
+COMMENT ON COLUMN MV_MOVIE.MV_SYNOPSIS IS '상세설명';
 
-insert into mv_movie values ('A002', '지오스톰', '딘 데블린', '제라드 버틀러(제이크)', '', '', '', 'pause', '인간이 기후를 조작한다
-지구의 대재앙이 시작됐다!'); 
+-- 예제 자료
+insert into mv_movie values ('A001', '범죄도시', '강윤성', '마동석, 윤계상', '', '오늘 밤, 다 쓸어버린다'); 
+
+insert into mv_movie values ('A002', '지오스톰', '딘 데블린', '제라드 버틀러(제이크)', '', '인간이 기후를 조작한다. 지구의 대재앙이 시작됐다!'); 
 
 
 ==================================

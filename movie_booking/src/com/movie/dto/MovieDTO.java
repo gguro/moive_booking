@@ -8,6 +8,7 @@ public class MovieDTO {
 	private String actor;//배우
 	private String synopsis;//줄거리
 	private String image;//이미지경로
+	
 	public String getTitle() {
 		return title;
 	}

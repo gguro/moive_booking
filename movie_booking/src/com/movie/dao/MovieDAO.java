@@ -42,7 +42,7 @@ public class MovieDAO {
 				Hmvo.setDirector(rs.getString("director"));
 				Hmvo.setActor(rs.getString("actor"));
 				Hmvo.setSynopsis(rs.getString("synopsis"));
-				Hmvo.setImage(rs.getString("image"));
+				Hmvo.setImage(rs.getString("MV_IMGLINK1"));
 				list.add(Hmvo);// 영화목록에 영화추가
 			}
 		} catch (Exception e) {

@@ -4,6 +4,8 @@
 
 
 <div id="wrapper">
+	<h2> 영화 예매 사이트 홈페이지 </h2>
+	<br>
 	<c:if test="${loginUser.name != null}">
 		<a>${loginUser.name}님.</a>
 		<a href="MemberFC?command=logout">logout</a>
