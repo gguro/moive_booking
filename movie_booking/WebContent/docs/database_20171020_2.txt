@@ -227,9 +227,11 @@ insert into mv_ticket values('TK01', 'SH01', '20171020', 'A1', 7500);
 insert into mv_ticket values('TK02', 'SH02', '20171020', 'A2', 7000);
 
 
+
 ==================================
 ==		 MV_SEAT 테이블  		==
 ==================================
+
 
 /* 좌석 */
 CREATE TABLE MV_SEAT (
@@ -252,5 +254,13 @@ COMMENT ON COLUMN MV_SEAT.ST_ROW IS '열';
 
 COMMENT ON COLUMN MV_SEAT.ST_USEYN IS '사용여부';
 
+INSERT INTO MV_SEAT VALUES('A01', 'SH01', 'A', 1, 0);
+INSERT INTO MV_SEAT VALUES('A02', 'SH01', 'A', 2, 0);
+INSERT INTO MV_SEAT VALUES('A03', 'SH01', 'A', 3, 0);
+INSERT INTO MV_SEAT VALUES('A04', 'SH01', 'A', 4, 0);
+INSERT INTO MV_SEAT VALUES('A05', 'SH01', 'A', 5, 0);
 
-INSERT INTO MV_SEAT 
+
+
+
+

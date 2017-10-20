@@ -1,16 +1,1 @@
-MemberDAO
-	int insertMember(MemverDTO mVo)
-	int updateMember(MemverDTO mVo)
-	int confirmID(String userid)
-	MemverDTO getMember(String userid)
-	int userCheck(String userid, String pwd)
-	
-MemverDTO
-	String userid
-	String pwd
-	String name
-	String gender 	// m : male, f : female
-	String email
-	String phone
-	String usergroup // "admin", "user"
-
+servelt mapping (commands)
