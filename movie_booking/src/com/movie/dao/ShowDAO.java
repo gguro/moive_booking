@@ -58,9 +58,35 @@ public class ShowDAO {
 		return sDTOList;
 		
 		
+		
 	}
 	
-	
+	//상영 정보 등록
+		public void insertShow(ShowDTO sDTO) {
+			String sql = "insert into mv_show values(?, ?, ?, ?, ?, ?)";
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				conn = DBManager.getConnection();
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, sDTO.getSH_CODE());
+				pstmt.setString(2, sDTO.getMV_CODE());
+				pstmt.setString(3, sDTO.getTH_CODE());
+				pstmt.setString(4, sDTO.getSR_CODE());
+				pstmt.setInt(5, sDTO.getShowtime());
+				pstmt.setString(6, sDTO.getSH_STATUS());
+				pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt);
+			}
+			
+		}
+
 	/*
 	
 	public List<ShowFullDTO> getShowFullList() {

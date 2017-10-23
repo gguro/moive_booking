@@ -255,7 +255,7 @@ public class MemberDAO {
 	}
 	
 	public void deleteMember(String userid) {
-		String sql = "delete mv_memver where userid=?";
+		String sql = "delete mv_member where userid=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {

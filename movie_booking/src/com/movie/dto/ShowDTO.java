@@ -6,6 +6,15 @@ public class ShowDTO {
 	private String MV_CODE;
 	private String TH_CODE;
 	private String SR_CODE;
+	private int showtime;
+	
+	
+	public int getShowtime() {
+		return showtime;
+	}
+	public void setShowtime(int showtime) {
+		this.showtime = showtime;
+	}
 	public String getSH_CODE() {
 		return SH_CODE;
 	}
@@ -39,7 +48,7 @@ public class ShowDTO {
 	@Override
 	public String toString() {
 		return "ShowDTO [SH_CODE=" + SH_CODE + ", SH_STATUS=" + SH_STATUS + ", MV_CODE=" + MV_CODE + ", TH_CODE="
-				+ TH_CODE + ", SR_CODE=" + SR_CODE + "]";
+				+ TH_CODE + ", SR_CODE=" + SR_CODE + ", showtime=" + showtime + "]";
 	}
 	
 	

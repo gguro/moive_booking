@@ -1,30 +1,26 @@
 package com.movie.controller.action;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.movie.dao.BookDAO;
-import com.movie.dto.BookDTO;
+import com.movie.dao.ShowDAO;
+import com.movie.dao.ShowroomDAO;
+import com.movie.dao.TheaterDAO;
+import com.movie.dto.ShowDTO;
+import com.movie.dto.ShowroomDTO;
+import com.movie.dto.TheaterDTO;
 
-
-public class BookListAction implements IAction {
+public class BookConfirmFormAction implements IAction {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "/book/bookList.jsp";
-		
-	    BookDAO bookDAO = BookDAO.getInstance();
-		ArrayList<BookDTO> list = bookDAO.selectAllBook();
-		
-		System.out.println(list);
-		request.setAttribute("booklist", list);
+		String url = "/book/bookconfirmform.jsp";
+
 		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);

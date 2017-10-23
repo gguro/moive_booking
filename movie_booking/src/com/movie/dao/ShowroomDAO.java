@@ -85,4 +85,27 @@ public class ShowroomDAO {
 		return srDTO;
 	}
 	
+		//상영관 등록
+		public void insertshowRoom(ShowroomDTO srDTO) {
+			String sql = "insert into mv_showroom values(?, ?,?,?)";
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			
+			try {
+				conn = DBManager.getConnection();
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, srDTO.getTheaterCode());
+				pstmt.setString(2, srDTO.getShowroomCode());
+				pstmt.setString(3, srDTO.getShowroomName());
+				pstmt.setInt(4, srDTO.getShowroomCapacity());
+				pstmt.executeUpdate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt);
+			}
+			
+		}
 }

@@ -22,7 +22,7 @@
 			<td>${list.phone}</td>
 			<td>${list.usergroup}</td>
 			<td>
-				<a href="#">탈퇴</a>
+				<a href="MemberFC?command=memberdelete&userid=${list.userid}">탈퇴</a>
 			</td>
 		</tr>
 	</c:forEach>

@@ -1,6 +1,8 @@
 package com.movie.controller;
 
+import com.movie.controller.action.BookConfirmFormAction;
 import com.movie.controller.action.BookListAction;
+import com.movie.controller.action.BookRequestAction;
 import com.movie.controller.action.IAction;
 import com.movie.controller.action.MovieListAction;
 import com.movie.controller.action.MovieWriteAction;
@@ -21,9 +23,13 @@ public class BookActionFactory {
 		IAction action = null;
 		System.out.println("BookActionFactory :" + command);
 		
-		if(command.equals("bookList")){
+		if(command.equals("booklist")){
 			action = new BookListAction();
-			}
+		} else if (command.equals("bookconfirmform")) {
+			action = new BookConfirmFormAction();
+		} else if (command.equals("bookrequest")) {
+			action = new BookRequestAction();
+		}
 		return action;
 	}
 

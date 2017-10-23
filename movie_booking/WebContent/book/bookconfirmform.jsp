@@ -4,7 +4,7 @@
 
 <div id="wraper">
 
-<h2> 예약리스트 </h2>
+<h2> 예약 확인창 </h2>
 
 	${booklist}
 

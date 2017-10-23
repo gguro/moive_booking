@@ -2,6 +2,7 @@ package com.movie.controller;
 
 import com.movie.controller.action.IAction;
 import com.movie.controller.action.IndexAction;
+import com.movie.controller.action.MemberDeleteAction;
 import com.movie.controller.action.MemberFindAction;
 import com.movie.controller.action.MemberFindIdCheckFormAction;
 import com.movie.controller.action.MemberFindPwdCheckFormAction;
@@ -59,7 +60,9 @@ public class MemberActionFactory {
 			action = new MemberUpdateAction();
 		} else if (command.equals("memberlist")) {
 			action = new MemberListAction();
-		} 
+		} else if (command.equals("memberdelete")) {
+			action = new MemberDeleteAction();
+		}
 		return action;
 	}
 }

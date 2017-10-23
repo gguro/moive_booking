@@ -88,6 +88,28 @@ public class TheaterDAO {
 		
 		return thDTO;
 	}
+
+	//±ÿ¿Â µÓ∑œ
+	public void insertTheater(TheaterDTO tDTO) {
+		String sql = "insert into mv_theater values(?,?,?)";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, tDTO.getTheaterCode());
+			pstmt.setString(2, tDTO.getTheaterName());
+			pstmt.setString(3, tDTO.getTheaterLocation());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
 	
 	
 	
