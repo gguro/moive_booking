@@ -17,11 +17,11 @@
               </div>
               <div class="btn_wrap">
                 <a href="MovieFC?command=movieDetail&mv_code=${movie.mv_code}">상세정보</a>
-                <a href="">예약</a>
+                <a href="BookFC?command=seatWrite&mv_code=${movie.mv_code}">예약</a>
               </div>
             </div>
           </li>
-           </c:forEach>
+         </c:forEach>
         </ul>
       </div>
     </div>

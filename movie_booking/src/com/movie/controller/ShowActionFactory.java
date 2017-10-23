@@ -25,7 +25,7 @@ public class ShowActionFactory {
 	
 	public IAction getAction(String command) {
 		IAction action = null;
-		System.out.println("MemberActionFactory : " + command);
+		System.out.println("ShowActionFactory : " + command);
 		
 		if(command.equals("getshowupdateform")) {
 			action = new ShowUpdateFormAction();

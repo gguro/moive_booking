@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.movie.dto.MemberDTO;
+import com.movie.dto.MovieDTO;
 import com.movie.dto.SeatDTO;
 import com.movie.dto.ShowroomDTO;
 import com.movie.dto.TheaterDTO;
@@ -95,5 +96,25 @@ public class SeatDAO {
 		return result;
 	}
 	
-	
+	public void SeatWriteAction(SeatDTO Hmvo) {
+		String sql = "INSERT INTO MV_SEAT VALUES(?,?,?,?,?)";
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		try {
+			conn = DBManager.getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, Hmvo.getSt_code());
+			psmt.setString(2, Hmvo.getSh_code());
+			psmt.setString(3, Hmvo.getSt_col());
+			psmt.setInt(4, Hmvo.getSt_row());
+			psmt.setInt(5, Hmvo.getSt_useyn());
+		    psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+			DBManager.close(conn, psmt);
+		}
+	}
 }
