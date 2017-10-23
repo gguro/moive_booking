@@ -89,6 +89,7 @@ public class ShowviewDAO {
 			pstmt.setString(1, sh_code);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
+				svDTO = new ShowviewDTO();
 				svDTO.setSh_code(rs.getString("sh_code"));
 				svDTO.setSr_code(rs.getString("sr_code"));
 				svDTO.setTh_name(rs.getString("th_name"));

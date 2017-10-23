@@ -31,7 +31,7 @@ public class BookFC extends HttpServlet {
 		// TODO Auto-generated method stub
 		String command = request.getParameter("command");
 		
-		System.out.println("BookServlet" + command);
+		System.out.println("BookFC : " + command);
 		BookActionFactory af = BookActionFactory.getInstance();
 		
 		// 액션컨트롤러 객체 리턴받음

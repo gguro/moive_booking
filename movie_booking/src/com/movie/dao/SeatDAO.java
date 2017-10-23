@@ -7,11 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.movie.dto.MemberDTO;
-import com.movie.dto.MovieDTO;
 import com.movie.dto.SeatDTO;
-import com.movie.dto.ShowroomDTO;
-import com.movie.dto.TheaterDTO;
 import com.movie.util.DBManager;
 
 public class SeatDAO {
@@ -26,7 +22,7 @@ public class SeatDAO {
 	}
 	
 	public List<SeatDTO> getSeatListByShCode(String sh_code) {
-		int result = -1;
+		
 		List<SeatDTO> stList = new ArrayList<SeatDTO>(); 
 		
 		ResultSet rs = null;
@@ -65,7 +61,6 @@ public class SeatDAO {
 	
 	public int getSeatUseyn(String sh_code, String st_code) {
 		int result = -1;
-		List<SeatDTO> stList = new ArrayList<SeatDTO>(); 
 		
 		ResultSet rs = null;
 		String sql = "select st_useyn from mv_seat where sh_code=? and st_code=?";

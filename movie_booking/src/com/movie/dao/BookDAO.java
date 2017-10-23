@@ -66,7 +66,7 @@ public class BookDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userid);
 			
-			rs = pstmt.executeQuery(sql);
+			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				System.out.println("x");
 				

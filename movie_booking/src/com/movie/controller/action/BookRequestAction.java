@@ -6,18 +6,9 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.movie.dao.BookDAO;
-import com.movie.dao.MemberDAO;
-import com.movie.dao.ShowDAO;
-import com.movie.dao.ShowroomDAO;
-import com.movie.dao.TheaterDAO;
 import com.movie.dto.BookDTO;
-import com.movie.dto.MemberDTO;
-import com.movie.dto.ShowDTO;
-import com.movie.dto.ShowroomDTO;
-import com.movie.dto.TheaterDTO;
 
 public class BookRequestAction implements IAction {
 

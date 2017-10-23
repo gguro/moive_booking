@@ -33,6 +33,7 @@ public class SeatFC extends HttpServlet {
 		
 		System.out.println("SeatServlet" + command);
 		SeatActionFactory af = SeatActionFactory.getInstance();
+		
 		// 액션컨트롤러 객체 리턴받음
 		IAction action = af.getAction(command);
 		if(action != null){

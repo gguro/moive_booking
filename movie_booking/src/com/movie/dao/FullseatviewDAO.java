@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.movie.dto.FullseatviewDTO;
-import com.movie.dto.ShowDTO;
 import com.movie.util.DBManager;
 
 public class FullseatviewDAO {

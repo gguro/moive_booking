@@ -7,7 +7,7 @@
 <h2> 예약 확인창 </h2>
 
 	<form action="BookFC?command=bookrequest" name="frm" method="post">
-		<input type="hidden" name="userid" value="gggg">
+		<input type="hidden" name="userid" value=${loginUser.userid}>
 		예약 코드<input type="text" name="bk_code" size="10">
 		좌석 코드<input type="text" name="st_code" value="${st_code}">
 		예약 날짜<input type="text" name="bk_date">

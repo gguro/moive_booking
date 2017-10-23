@@ -10,7 +10,6 @@ import java.util.List;
 import com.movie.dto.MemberDTO;
 import com.movie.util.DBManager;
 
-import jdk.internal.dynalink.support.TypeUtilities;
 
 public class MemberDAO {
 	private MemberDAO() {
@@ -106,7 +105,7 @@ public class MemberDAO {
 	}
 	
 	public String findID(String email) {
-		int result = -1;
+		
 		String sql = "select userid from mv_member where email = ?";
 		
 		Connection conn = null;
@@ -121,9 +120,7 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				userid = rs.getString("userid"); 
-			} else {
-				result = -1;
-			}
+			} 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -133,7 +130,7 @@ public class MemberDAO {
 		return userid;
 	}
 	public String findPWD(String userid) {
-		int result = -1;
+		
 		String sql = "select pwd from mv_member where userid = ?";
 		
 		Connection conn = null;
@@ -148,9 +145,7 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				pwd = rs.getString("pwd"); 
-			} else {
-				result = -1;
-			}
+			} 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

@@ -27,7 +27,6 @@ public class ShowDAO {
 		ResultSet rs = null;
 		ShowDTO sDTO = null;
 		
-		int result = -1;
 		String sql = "select * from mv_show";
 		
 		Connection conn = null;
@@ -39,6 +38,7 @@ public class ShowDAO {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
+				sDTO = new ShowDTO();
 				sDTO.setSH_CODE(rs.getString("sh_code"));
 				sDTO.setMV_CODE(rs.getString("mv_code"));
 				sDTO.setTH_CODE(rs.getString("th_code"));
@@ -46,9 +46,7 @@ public class ShowDAO {
 				sDTO.setSH_STATUS(rs.getString("sh_status"));
 				
 				sDTOList.add(sDTO);
-			} else {
-				result = -1;
-			}
+			} 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
