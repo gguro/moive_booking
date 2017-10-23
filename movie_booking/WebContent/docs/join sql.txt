@@ -11,4 +11,12 @@ SELECT MV_SHOW.SH_CODE, MV_SHOW.MV_CODE, MV_SHOW.SR_CODE, SHOWROOM_VIEW.TH_NAME,
 
 CREATE VIEW SHOWVIEW AS SELECT MV_SHOW.SH_CODE, MV_SHOW.MV_CODE, MV_SHOW.SR_CODE, SHOWROOM_VIEW.TH_NAME, SHOWROOM_VIEW.SR_NAME, MV_SHOW.SHOWTIME, MV_SHOW.SH_STATUS FROM MV_SHOW JOIN SHOWROOM_VIEW ON MV_SHOW.SR_CODE = SHOWROOM_VIEW.SR_CODE;
 
+// showtimeview = showview + mv_showtime
+SELECT showview.SH_CODE, showview.MV_CODE, showview.SR_CODE, showview.TH_NAME, showview.SR_NAME, showview.SHOWTIME, mv_showtime.localtime, showview.SH_STATUS FROM showview JOIN mv_showtime ON showview.showtime = mv_showtime.showtime;
 
+CREATE VIEW SHOWTIMEVIEW AS SELECT showview.SH_CODE, showview.MV_CODE, showview.SR_CODE, showview.TH_NAME, showview.SR_NAME, showview.SHOWTIME, mv_showtime.localtime, showview.SH_STATUS FROM showview JOIN mv_showtime ON showview.showtime = mv_showtime.showtime;
+
+// FULLSEATVIEW = MV_SEAT + SHOWTIMEVIEW
+SELECT showtimeview.SH_CODE, showtimeview.MV_CODE, showtimeview.SR_CODE, showtimeview.TH_NAME, showtimeview.SR_NAME, showtimeview.SHOWTIME, showtimeview.localtime, showtimeview.SH_STATUS, mv_seat.st_code, mv_seat.st_useyn FROM showtimeview JOIN mv_seat ON showtimeview.sh_code = mv_seat.sh_code;
+
+create view fullseatview SELECT showtimeview.SH_CODE, showtimeview.MV_CODE, showtimeview.SR_CODE, showtimeview.TH_NAME, showtimeview.SR_NAME, showtimeview.SHOWTIME, showtimeview.localtime, showtimeview.SH_STATUS, mv_seat.st_code, mv_seat.st_useyn FROM showtimeview JOIN mv_seat ON showtimeview.sh_code = mv_seat.sh_code; 

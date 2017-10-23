@@ -33,9 +33,11 @@
 		<a href="ShowFC?command=getshowupdateform">상영등록</a>
 	</c:if>
 	<br>
-	티겟 관련 페이지>>
-	<a href="#">티켓리스트</a> |
+	
+	좌석 관련 페이지>>
+	<a href="SeatFC?command=seatfulllist">전체 좌석 리스트</a> |
 	<c:if test="${loginUser.usergroup == 'admin'}">
+
 		<a href="#">티켓등록</a>
 	</c:if>
 	<br>

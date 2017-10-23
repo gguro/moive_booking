@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.movie.dao.MemberDAO;
 import com.movie.dto.MemberDTO;
 
 public class MemberFindAction implements IAction {

@@ -13,7 +13,6 @@ import com.movie.dao.MovieDAO;
 import com.movie.dao.ShowDAO;
 import com.movie.dao.ShowroomDAO;
 import com.movie.dao.TheaterDAO;
-import com.movie.dto.MovieDTO;
 import com.movie.dto.ShowDTO;
 import com.movie.dto.ShowFullDTO;
 

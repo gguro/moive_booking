@@ -1,13 +1,7 @@
 package com.movie.controller;
 
 import com.movie.controller.action.IAction;
-import com.movie.controller.action.MovieDeleteAction;
-import com.movie.controller.action.MovieDetailAction;
-import com.movie.controller.action.MovieListAction;
-import com.movie.controller.action.MovieUpdateAction;
-import com.movie.controller.action.MovieUpdateFormAction;
-import com.movie.controller.action.MovieWriteAction;
-import com.movie.controller.action.MovieWriteFormAction;
+import com.movie.controller.action.SeatFulllistAction;
 import com.movie.controller.action.SeatWriteAction;
 
 public class SeatActionFactory {
@@ -27,7 +21,9 @@ public class SeatActionFactory {
 		
 		if(command.equals("seatWrite")){
 			action = new SeatWriteAction();
-			} 
+		} else if (command.equals("seatfulllist")) {
+			action = new SeatFulllistAction();
+		}
 		return action;
 	}
 

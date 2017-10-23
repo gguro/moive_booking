@@ -1,7 +1,6 @@
 package com.movie.controller.action;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -9,14 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.movie.dao.MovieDAO;
-import com.movie.dao.ShowDAO;
-import com.movie.dao.ShowroomDAO;
 import com.movie.dao.ShowviewDAO;
-import com.movie.dao.TheaterDAO;
-import com.movie.dto.MovieDTO;
-import com.movie.dto.ShowDTO;
-import com.movie.dto.ShowFullDTO;
 import com.movie.dto.ShowviewDTO;
 
 public class ShowviewListAction implements IAction {
