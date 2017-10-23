@@ -33,6 +33,7 @@ public class BookFC extends HttpServlet {
 		
 		System.out.println("BookServlet" + command);
 		BookActionFactory af = BookActionFactory.getInstance();
+		
 		// 액션컨트롤러 객체 리턴받음
 		IAction action = af.getAction(command);
 		if(action != null){

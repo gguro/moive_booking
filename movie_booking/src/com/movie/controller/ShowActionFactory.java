@@ -1,17 +1,10 @@
 package com.movie.controller;
 
 import com.movie.controller.action.IAction;
-import com.movie.controller.action.IndexAction;
-import com.movie.controller.action.MemberJoinAction;
-import com.movie.controller.action.MemberJoinFormAction;
-import com.movie.controller.action.MemberJoinIdCheckFormAction;
-import com.movie.controller.action.MemberLoginAction;
-import com.movie.controller.action.MemberLoginFormAction;
-import com.movie.controller.action.MemberLogoutAction;
-import com.movie.controller.action.ShowUpdateFormAction;
-import com.movie.controller.action.ShowviewListAction;
 import com.movie.controller.action.ShowListAction;
 import com.movie.controller.action.ShowUpdateAction;
+import com.movie.controller.action.ShowUpdateFormAction;
+import com.movie.controller.action.ShowviewListAction;
 
 public class ShowActionFactory {
 	private static ShowActionFactory instance = new ShowActionFactory();

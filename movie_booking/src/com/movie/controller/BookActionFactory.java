@@ -2,11 +2,9 @@ package com.movie.controller;
 
 import com.movie.controller.action.BookConfirmFormAction;
 import com.movie.controller.action.BookListAction;
+import com.movie.controller.action.BookListByUseridAction;
 import com.movie.controller.action.BookRequestAction;
 import com.movie.controller.action.IAction;
-import com.movie.controller.action.MovieListAction;
-import com.movie.controller.action.MovieWriteAction;
-import com.movie.controller.action.MovieWriteFormAction;
 
 public class BookActionFactory {
 	private static BookActionFactory instance = new BookActionFactory();
@@ -29,6 +27,8 @@ public class BookActionFactory {
 			action = new BookConfirmFormAction();
 		} else if (command.equals("bookrequest")) {
 			action = new BookRequestAction();
+		} else if (command.equals("booklistbyuserid")) {
+			action = new BookListByUseridAction();
 		}
 		return action;
 	}

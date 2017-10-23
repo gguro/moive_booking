@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.movie.dto.MovieDTO;
 import com.movie.util.DBManager;
@@ -22,9 +23,9 @@ public class MovieDAO {
 	}
 
 	// 영화 목록을 출력한다.
-	public ArrayList<MovieDTO> selectAllMovie() {
+	public List<MovieDTO> selectAllMovie() {
 		String sql = "SELECT * FROM MV_MOVIE ORDER BY mv_code DESC";
-		ArrayList<MovieDTO> list = new ArrayList<MovieDTO>();// 영화목록
+		List<MovieDTO> list = new ArrayList<MovieDTO>();// 영화목록
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;

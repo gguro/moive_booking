@@ -2,6 +2,7 @@ package com.movie.controller.action;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,17 +23,17 @@ public class ShowUpdateFormAction implements IAction {
 		
 		// movie list 얻어 와서 setAttribute
 		MovieDAO mvDAO = MovieDAO.getInstance();
-		ArrayList<MovieDTO> movieList = mvDAO.selectAllMovie();
+		List<MovieDTO> movieList = mvDAO.selectAllMovie();
 		request.setAttribute("movielist", movieList);
 		
 		// theater list 얻어 와서 setAttribute
 		TheaterDAO thDAO = TheaterDAO.getInstance();
-		ArrayList<String> theaterList = thDAO.getTheatorList();
+		List<String> theaterList = thDAO.getTheatorList();
 		request.setAttribute("theaterlist", theaterList);
 		
 		// showroom list 얻어와서 setAttribute
 		ShowroomDAO srDAO = ShowroomDAO.getInstance();
-		ArrayList<String> showroomList = srDAO.getShowroomList();
+		List<String> showroomList = srDAO.getShowroomList();
 		request.setAttribute("showroomlist", showroomList);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);

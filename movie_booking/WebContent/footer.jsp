@@ -42,9 +42,10 @@
 	</c:if>
 	<br>
 	예약 관련 페이지>>
-	<a href="BookFC?command=booklist">예약리스트</a> |
+	<a href="BookFC?command=booklistbyuserid">예약리스트</a> |
 	<c:if test="${loginUser.usergroup == 'admin'}">
-		<a href="SeatFC?command=seatfulllist">예약등록</a>
+		<a href="SeatFC?command=seatfulllist">예약등록</a> |
+		<a href="BookFC?command=booklist">전체예약리스트</a> 
 	</c:if>
 	<br>
 </div>

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.movie.dto.MemberDTO;
 import com.movie.dto.ShowroomDTO;
@@ -21,9 +22,9 @@ public class ShowroomDAO {
 		return instance;
 	}
 	
-	public ArrayList<String> getShowroomList() {
+	public List<String> getShowroomList() {
 		int result = -1;
-		ArrayList<String> srList = new ArrayList<String>();
+		List<String> srList = new ArrayList<String>();
 		String showroom = null;
 		
 		ResultSet rs = null;
@@ -85,7 +86,7 @@ public class ShowroomDAO {
 		return srDTO;
 	}
 	
-		//»ó¿µ°ü µî·Ï
+		//ï¿½ó¿µ°ï¿½ ï¿½ï¿½ï¿½
 		public void insertshowRoom(ShowroomDTO srDTO) {
 			String sql = "insert into mv_showroom values(?, ?,?,?)";
 			

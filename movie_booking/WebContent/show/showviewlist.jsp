@@ -5,13 +5,13 @@
 <h2>상영 리스트</h2>
 <table class="list">
 	<tr>
-		<th>상영 번호</th>
-		<th>영화 코드</th>
-		<th>상영관 코드</th>
-		<th>극장</th>
-		<th>상영관</th>
+		<th>상영번호</th>
+		<th>영화코드</th>
+		<th>상영관코드</th>
+		<th>극장이름</th>
+		<th>상영관이름</th>
 		<th>상영회차</th>
-		<th>상태</th>
+		<th>상영상태</th>
 	</tr>
 	<c:forEach var="showviewlist" items="${showviewlist}">
 		<tr class="record">

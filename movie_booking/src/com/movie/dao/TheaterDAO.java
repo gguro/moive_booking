@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.movie.dto.MemberDTO;
 import com.movie.dto.ShowroomDTO;
@@ -22,9 +23,9 @@ public class TheaterDAO {
 		return instance;
 	}
 	
-	public ArrayList<String> getTheatorList() {
+	public List<String> getTheatorList() {
 		int result = -1;
-		ArrayList<String> thList = new ArrayList<String>();
+		List<String> thList = new ArrayList<String>();
 		String theater = null;
 		
 		ResultSet rs = null;
@@ -89,7 +90,7 @@ public class TheaterDAO {
 		return thDTO;
 	}
 
-	//±ØÀå µî·Ï
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	public void insertTheater(TheaterDTO tDTO) {
 		String sql = "insert into mv_theater values(?,?,?)";
 		

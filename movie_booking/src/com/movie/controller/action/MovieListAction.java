@@ -2,6 +2,7 @@ package com.movie.controller.action;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,7 +22,7 @@ public class MovieListAction implements IAction {
 		String url = "movie/movieList.jsp";
 		
 		MovieDAO movieDAO = MovieDAO.getInstance();
-		ArrayList<MovieDTO> mlist = movieDAO.selectAllMovie();
+		List<MovieDTO> mlist = movieDAO.selectAllMovie();
 		
 		request.setAttribute("mlist", mlist);
 		System.out.println(mlist);

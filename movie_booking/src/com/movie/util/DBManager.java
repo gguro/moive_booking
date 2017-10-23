@@ -29,7 +29,7 @@ public class DBManager {
 	
 	public static void close(Connection conn, Statement stmt, ResultSet rs) {
 		try {
-			rs.close();
+			if(rs != null) rs.close();
 			stmt.close();
 			conn.close();
 		} catch (Exception e) {
