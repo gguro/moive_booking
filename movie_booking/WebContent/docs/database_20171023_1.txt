@@ -108,32 +108,6 @@ insert into mv_showroom values('TH01', 'SR02', '2관', 25);
 insert into mv_showroom values('TH01', 'SR03', '3관', 25);
 
 
-==================================
-==		 mv_BOOK 테이블  		==
-==================================
-
-/* 영화예약 */
-CREATE TABLE MV_BOOK (
-	BK_CODE VARCHAR2(4) NOT NULL, /* 예약번호 */
-	USERID VARCHAR2(10) NOT NULL, /* 아이디 */
-	TK_CODE VARCHAR2(4) NOT NULL, /* 티켓번호 */
-	BK_DATE DATE, /* 예약일 */
-	BK_STATUS VARCHAR2(30) /* 상태 */
-);
-
-COMMENT ON TABLE MV_BOOK IS '영화예약';
-
-COMMENT ON COLUMN MV_BOOK.BK_CODE IS '예약번호';
-
-COMMENT ON COLUMN MV_BOOK.USERID IS '아이디';
-
-COMMENT ON COLUMN MV_BOOK.TK_CODE IS '티켓번호';
-
-COMMENT ON COLUMN MV_BOOK.BK_DATE IS '예약일';
-
-COMMENT ON COLUMN MV_BOOK.BK_STATUS IS '상태';
-
-
 
 ==================================
 ==		 mv_SHOW 테이블  		==
@@ -194,37 +168,6 @@ INSERT INTO MV_SHOWTIME VALUES(3, '20:00');
 
 
 
-
-
-==================================
-==		 MV_TICKET 테이블  		==
-==================================
-
-
-/* 티켓 */
-CREATE TABLE MV_TICKET (
-	TK_CODE VARCHAR2(4) NOT NULL, /* 티켓번호 */
-	SH_CODE VARCHAR2(4) NOT NULL, /* 상영번호 */
-	TK_DATE VARCHAR2(8), /* 상영일 */
-	ST_CODE VARCHAR2(4) NOT NULL, /* 좌석코드 */
-	TK_PRICE NUMBER /* 가격 */
-);
-
-COMMENT ON TABLE MV_TICKET IS '티켓';
-
-COMMENT ON COLUMN MV_TICKET.TK_CODE IS '티켓번호';
-
-COMMENT ON COLUMN MV_TICKET.SH_CODE IS '상영번호';
-
-COMMENT ON COLUMN MV_TICKET.TK_DATE IS '상영일';
-
-COMMENT ON COLUMN MV_TICKET.ST_CODE IS '좌석코드';
-
-COMMENT ON COLUMN MV_TICKET.TK_PRICE IS '가격';
-
-
-insert into mv_ticket values('TK01', 'SH01', '20171020', 'A1', 7500);
-insert into mv_ticket values('TK02', 'SH02', '20171020', 'A2', 7000);
 
 
 
