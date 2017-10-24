@@ -3,6 +3,7 @@ package com.movie.controller;
 import com.movie.controller.action.IAction;
 import com.movie.controller.action.SeatFulllistAction;
 import com.movie.controller.action.SeatPartListAction;
+import com.movie.controller.action.SeatPartListByMvcodeAction;
 
 public class SeatActionFactory {
 	private static SeatActionFactory instance = new SeatActionFactory();
@@ -27,6 +28,8 @@ public class SeatActionFactory {
 			action = new SeatFulllistAction();
 		} else if(command.equals("seatpartlist")) {
 			action = new SeatPartListAction();
+		} else if(command.equals("seatpartlistbymvcode")) {
+			action = new SeatPartListByMvcodeAction();
 		}
 		return action;
 	}

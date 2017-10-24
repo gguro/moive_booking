@@ -2,30 +2,38 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
 
-<h2>»ó¿µ ¸®½ºÆ®</h2>
-<table class="list">
-	<tr>
-		<th>»ó¿µ¹øÈ£</th>
-		<th>¿µÈ­ÄÚµå</th>
-		<th>»ó¿µ°üÄÚµå</th>
-		<th>±ØÀåÀÌ¸§</th>
-		<th>»ó¿µ°üÀÌ¸§</th>
-		<th>»ó¿µÈ¸Â÷</th>
-		<th>»ó¿µ»óÅÂ</th>
-	</tr>
-	<c:forEach var="showviewlist" items="${showviewlist}">
-		<tr class="record">
-			<td>${showviewlist.sh_code}</td>
-			<td>${showviewlist.mv_code}</td>
-			<td>${showviewlist.sr_code}</td>
-			<td>${showviewlist.th_name}</td>
-			<td>${showviewlist.sr_name}</td>
-			<td>${showviewlist.showtime}</td>
-			<td>${showviewlist.sh_status}</td>
-		</tr>
-	</c:forEach>
-</table>
-
-
+<div class="container">
+	<div class="row">
+		<div class="col-md-0"></div>
+		<div class="jumbotron col-md-12">
+		<h2 class="text-center">ìƒì˜ì •ë³´</h2>
+			<table class="table table-striped">
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">ìƒì˜ì½”ë“œ</th>
+			      <th scope="col">ì˜í™”ì½”ë“œ</th>
+			      <th scope="col">ê·¹ì¥</th>
+			      <th scope="col">ìƒì˜ê´€</th>
+			      <th scope="col">íšŒì°¨</th>
+			      <th scope="col">ìƒì˜ìƒíƒœ</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+				<c:forEach var="showviewlist" items="${showviewlist}">
+				    <tr>
+				        <th scope="row">${showviewlist.sh_code}</th>
+						<td>${showviewlist.mv_code}</td>
+					    <td>${showviewlist.th_name}</td>
+						<td>${showviewlist.sr_name}</td>
+						<td>${showviewlist.showtime}</td>
+						<td>${showviewlist.sh_status}</td>
+				    </tr>
+				</c:forEach>
+			  </tbody>
+			</table>
+		</div>
+		<div class="col-md-0"></div>
+	</div>
+</div>
 
 <%@ include file="../footer.jsp" %>

@@ -5,119 +5,60 @@
 
 
 
-<div id="wraper">
-<h2 align="center"> 상영리스트 등록 </h2>
-<form action="ShowFC?command=showupdate" method="post" name="frm">
-	<h3>상영관 등록</h3>
-	<table>
-		<tr>
-			<td>상영관 식별자 입력</td>
-			<td>
-				<input type="text" name="th_code" size="20" id="th_code">
-			</td>
-		</tr>
-		<tr>
-			<td>상영관 식별자</td>
-			<td>
-				<input type="text" name="sr_code" size="20" id="sr_code">
-			</td>
-		</tr>
-		<tr>
-			<td>상영관 이름</td>
-			<td>
-				<input type="text" name="sr_name" size="20" id="sr_name">
-			</td>
-		</tr>
-		<tr>
-			<td>좌석수</td>
-			<td>
-				<select name="sr_capacity" id="sr_capacity">
-					<c:forEach var="i" begin="1" end="25">
-						<option value="${i}">${i}</option>
-					</c:forEach>
-				</select>
-			</td>
-		</tr>
-	</table>
-	<h3>극장 등록</h3>
-	<table>
-		<tr>
-			<td>극장 식별자</td>
-			<td>
-				<input type="text" name="th_code" size="20" id="th_code">
-			</td>
-		</tr>
-		<tr>
-			<td>극장이름</td>
-			<td>
-				<input type="text" name="th_name" size="20" id="th_name">
-			</td>
-		</tr>
-		<tr>
-			<td>위치</td>
-			<td>
-				<input type="text" name="th_location" size="20" id="th_location">
-			</td>
-		</tr>
-	</table>
-	<h3>상영정보 입력</h3>
-	<table>
-		<tr>
-			<td>상영번호</td>
-			<td>
-				<input type="text" name="sh_code" size="20" id="sh_code">
-			</td>
-		</tr>
-		<tr>
-			<td>영화 식별자</td>
-			<td>
-				<input type="text" name="mv_code" size="20" id="mv_code">
-			</td>
-		</tr>
-		<tr>
-			<td>극장코드</td>
-			<td>
-				<input type="text" name="th_code" size="20" id="th_code">
-			</td>
-		</tr>
-		<tr>
-			<td>상영관코드</td>
-			<td>
-				<input type="text" name="sr_code" size="20" id="sr_code">
-			</td>
-		</tr>
-		<tr>
-			<td>상영회차</td>
-			<td>
-				<select name="showtime" id="showtime">
-					<c:forEach var="i" begin="1" end="5">
-						<option value="${i}">${i}</option>
-					</c:forEach>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>상영상태</td>
-			<td>
-				<select name="sh_status" id="sh_status">
-					<option value="대기">대기</option>
-					<option value="상영">상영</option>
-				</select>
-			</td>
-		</tr>
-	</table>
-	<table>
-		<tr>
-			<td colspan="2" align="center">
-				<input type="submit" value="등록">
-			</td>
-		</tr>
-	</table>
-</form>	
+<div class="container">
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<div class="jumbotron">
+				<h3>상영 등록</h3>
+				<form method="post" action="ShowFC?command=showupdate" name="frm">
+				  <div class="form-group row" >
+				    <label for="th_code" class="col-sm-4 col-form-label">극장코드</label>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="th_code" placeholder="th_code" name="th_code">
+				    </div>
+				  </div>
+				  <div class="form-group row">
+				    <label for="sr_code" class="col-sm-4 col-form-label">상영관코드</label>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="sr_code" placeholder="sr_code" name="sr_code">
+				    </div>
+				  </div>
+				  <div class="form-group row">
+				    <label for="sh_code" class="col-sm-4 col-form-label">상영코드</label>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="sh_code" placeholder="sh_code" name="sh_code">
+				    </div>
+				  </div>
+				  <div class="form-group row" >
+				    <label for="mv_code" class="col-sm-4 col-form-label">영화코드</label>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="mv_code" placeholder="mv_code" name="mv_code">
+				    </div>
+				  </div>
+				  <div class="form-group row" >
+				    <label for="showtime" class="col-sm-4 col-form-label">상영회차</label>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="showtime" placeholder="showtime" name="showtime">
+				    </div>
+				  </div>
+				    <div class="form-group row">
+				      <label for="sh_status" class="col-sm-4 col-form-label">상영상태</label>
+				      <div class="col-sm-8">
+					      <select id="sh_status" class="form-control" name="sh_status">
+					      	<option value="대기">대기</option>
+							<option value="상영">상영</option>
+					      </select>
+				      </div>
+				    </div>
+				    <button class="btn btn-primary" type="submit" >확인</button>
+				    <button class="btn btn-outline-primary" type="button" onclick="history.go(-1)">취소</button>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
 </div>
-
-
-
 
 
 <%@ include file="../footer.jsp" %>

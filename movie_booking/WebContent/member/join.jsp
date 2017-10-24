@@ -2,55 +2,68 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
 
-<div id="wrapper">
-	<h2>회원 가입</h2>
-	'*' 표시 항목은 필수 입력 항목입니다.
-	<form action="MemberFC?command=join" method="post" name="frm">
-		<table>
-			<tr>
-				<td>아이디</td>
-				<td><input type="text" name="userid" size="20" id="userid">*
-					<input type="hidden" name="reid" size="20"> <input
-					type="button" value="중복 체크" onclick="idCheck()"></td>
-			</tr>
-			<tr>
-				<td>암호</td>
-				<td><input type="password" name="pwd" size="20">*</td>
-			</tr>
-			<tr height="30">
-				<td width="80">암호 확인</td>
-				<td><input type="password" name="pwd_check" size="20">*</td>
-			</tr>
-			<tr>
-				<td>이름</td>
-				<td><input type="text" name="name" size="20">*</td>
-			</tr>
-			<tr>
-				<td>이메일</td>
-				<td><input type="text" name="email" size="20"></td>
-			</tr>
-			<tr>
-				<td>휴대폰</td>
-				<td><input type="text" name="phone" size="20"></td>
-			</tr>
-			<tr>
-				<td>회원분류</td>
-				<td><input type="radio" name="usergroup" value="user"
-					checked="checked">일반회원 <input type="radio" name="usergroup"
-					value="admin">관리자</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit" value="확인"
-					onclick="return joinCheck()"> <input type="reset"
-					value="취소"></td>
-			</tr>
-			<tr>
-				<td colspan="2">${message}</td>
-			</tr>
-		</table>
-	</form>
-
-
-
+<div class="container">
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<div class="jumbotron">
+				<h3>회원가입</h3>
+				<form method="post" action="MemberFC?command=join" name="frm">
+				  <div class="form-group row" >
+				    <label for="id" class="col-sm-4 col-form-label">아이디</label>
+				    <div class="col-sm-5">
+				      <input type="text" class="form-control" id="id" placeholder="아이디" name="userid">
+				    </div>
+				    <div class="col-sm-3">
+						<input type="hidden" name="reid"> 
+				    	<button class="btn btn-primary" type="button" onclick="idCheck()">중복체크</button>
+				    </div>
+				  </div>
+				  <div class="form-group row">
+				    <label for="pwd" class="col-sm-4 col-form-label">비밀번호</label>
+				    <div class="col-sm-8">
+				      <input type="password" class="form-control" id="pwd" placeholder="비밀번호" name="pwd">
+				    </div>
+				  </div>
+				  <div class="form-group row">
+				    <label for="pwd2" class="col-sm-4 col-form-label">비밀번호 확인</label>
+				    <div class="col-sm-8">
+				      <input type="password" class="form-control" id="pwd2" placeholder="비밀번호 확인" name="pwd_check">
+				    </div>
+				  </div>
+				  <div class="form-group row" >
+				    <label for="name" class="col-sm-4 col-form-label">이름</label>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="name" placeholder="이름" name="name">
+				    </div>
+				  </div>
+				  <div class="form-group row" >
+				    <label for="phone" class="col-sm-4 col-form-label">핸드폰</label>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="phone" placeholder="핸드폰" name="phone">
+				    </div>
+				  </div>
+				  <div class="form-group row" >
+				    <label for="email" class="col-sm-4 col-form-label">이메일</label>
+				    <div class="col-sm-8">
+				      <input type="email" class="form-control" id="phone" placeholder="이메일" name="email">
+				    </div>
+				  </div>
+				    <div class="form-group row">
+				      <label for="group" class="col-sm-4 col-form-label">구분</label>
+				      <div class="col-sm-8">
+					      <select id="group" class="form-control" name="usergroup">
+					      	<option value="user">일반</option>
+							<option value="admin">관리자</option>
+					      </select>
+				      </div>
+				    </div>
+				    <button class="btn btn-primary" type="submit" onclick="return joinCheck()">회원가입</button>
+				    <button class="btn btn-outline-primary" type="button" onclick="history.go(-1)">취소</button>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
 </div>
 <%@ include file="../footer.jsp"%>

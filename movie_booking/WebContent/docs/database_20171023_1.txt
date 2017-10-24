@@ -41,20 +41,12 @@ COMMENT ON COLUMN MV_MOVIE.MV_SYNOPSIS IS '상세설명';
 -- 예제 자료
 insert into mv_movie values ('A001', '범죄도시', '강윤성', '마동석, 윤계상', '', '오늘 밤, 다 쓸어버린다'); 
 
-insert into mv_movie values ('A002', '지오스톰', '딘 데블린', '제라드 버틀러(제이크)', '', '인간이 기후를 조작한다. 지구의 대재앙이 시작됐다!'); 
+insert into mv_movie values ('A002', '지오스톰', '딘 데블린', '제라드 버틀러(제이크)', '', '인간이 기후를 조작한다. 지구의 대재앙이 시작됐다!');
+ 
 
--- 시퀀스 생성
-create sequence mv_movie_seq
-  start with 1
-  increment BY 1
-  maxvalue 10000;
 ==================================
 ==		 mv_theater 테이블  		==
 ==================================
-
-/* 극장 */
-DROP TABLE MV_THEATER 
-	CASCADE CONSTRAINTS;
 
 
 /* 극장 */
@@ -168,9 +160,6 @@ INSERT INTO MV_SHOWTIME VALUES(3, '20:00');
 
 
 
-
-
-
 ==================================
 ==		 MV_SEAT 테이블  		==
 ==================================
@@ -202,8 +191,6 @@ INSERT INTO MV_SEAT VALUES('A02', 'SH01', 'A', 2, 0);
 INSERT INTO MV_SEAT VALUES('A03', 'SH01', 'A', 3, 0);
 INSERT INTO MV_SEAT VALUES('A04', 'SH01', 'A', 4, 0);
 INSERT INTO MV_SEAT VALUES('A05', 'SH01', 'A', 5, 0);
-
-
 
 
 ==================================

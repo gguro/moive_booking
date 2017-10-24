@@ -56,17 +56,18 @@ public class MovieDAO {
 	// 전달인자로 받은 VO 객체를 board 테이블에 삽입한다.
 
 	public void insertMovie(MovieDTO Hmvo) {
-		String sql = "INSERT INTO MV_MOVIE VALUES(MV_MOVIE_SEQ.NEXTVAL,?,?,?,?,?)";
+		String sql = "INSERT INTO MV_MOVIE VALUES(?,?,?,?,?,?)";
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		try {
 			conn = DBManager.getConnection();
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, Hmvo.getMv_title());
-			psmt.setString(2, Hmvo.getMv_director());
-			psmt.setString(3, Hmvo.getMv_cast());
-			psmt.setString(4, Hmvo.getMv_imglink1());
-			psmt.setString(5, Hmvo.getMv_synopsis());
+			psmt.setString(1, Hmvo.getMv_code());
+			psmt.setString(2, Hmvo.getMv_title());
+			psmt.setString(3, Hmvo.getMv_director());
+			psmt.setString(4, Hmvo.getMv_cast());
+			psmt.setString(5, Hmvo.getMv_imglink1());
+			psmt.setString(6, Hmvo.getMv_synopsis());
 		    psmt.executeUpdate();
 
 		} catch (Exception e) {

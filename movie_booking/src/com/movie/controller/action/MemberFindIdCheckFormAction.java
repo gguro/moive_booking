@@ -14,7 +14,7 @@ public class MemberFindIdCheckFormAction implements IAction{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url = "/member/find_id.jsp";
+		String url = "/member/idcheck.jsp";
 		String email = request.getParameter("email");
 		MemberDAO mDao = MemberDAO.getInstance();
 		

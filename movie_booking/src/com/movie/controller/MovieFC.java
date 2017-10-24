@@ -36,7 +36,7 @@ public class MovieFC extends HttpServlet {
 		// command=movie_list
 		String command = request.getParameter("command");
 		
-		System.out.println("MovieServlet" + command);
+		System.out.println("MovieServlet : " + command);
 		MovieActionFactory af = MovieActionFactory.getInstance();
 		// 액션컨트롤러 객체 리턴받음
 		IAction action = af.getAction(command);

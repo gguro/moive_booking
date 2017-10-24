@@ -14,7 +14,10 @@ public class BookConfirmFormAction implements IAction {
 		// TODO Auto-generated method stub
 		String url = "/book/bookconfirmform.jsp";
 
-		System.out.println("st_code = " + request.getParameter("st_code"));
+		String st_code = request.getParameter("st_code");
+		System.out.println("st_code = " + st_code);
+		
+		request.setAttribute("st_code", st_code);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

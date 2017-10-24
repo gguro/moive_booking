@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.movie.dto.MemberDTO;
-import com.movie.dto.ShowroomDTO;
 import com.movie.dto.TheaterDTO;
 import com.movie.util.DBManager;
 

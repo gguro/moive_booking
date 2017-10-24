@@ -3,6 +3,8 @@ package com.movie.controller.action;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,15 +32,34 @@ public class SeatFulllistAction implements IAction {
 		ShowviewDAO shvDAO = ShowviewDAO.getInstance();
 		List<ShowviewDTO> showviewList = shvDAO.getShowviewList();
 		
-		request.setAttribute("showviewlist", showviewList);
+		Set<String> mv_codeset = new TreeSet<String>();
+		Set<String> th_nameset = new TreeSet<String>();
+		Set<String> sr_nameset = new TreeSet<String>();
+		Set<String> showtimeset = new TreeSet<String>();
 		
-		//��ȭ����
+		// mv_code list 추출
+		for (ShowviewDTO showview : showviewList) {
+			mv_codeset.add(showview.getMv_code());
+			th_nameset.add(showview.getTh_name());
+			sr_nameset.add(showview.getSr_name());
+			showtimeset.add(""+showview.getShowtime());
+		}
+		
+		//System.out.println("mv_codeset : " + mv_codeset);
+		request.setAttribute("mv_codeset", mv_codeset);
+		request.setAttribute("th_nameset", th_nameset);
+		request.setAttribute("sr_nameset", sr_nameset);
+		request.setAttribute("showtimeset", showtimeset);
+		
+		//request.setAttribute("showviewlist", showviewList);
+		
+		//
 		MovieDAO movieDAO = MovieDAO.getInstance();
 		List<MovieDTO> mlist = movieDAO.selectAllMovie();
 		
 		request.setAttribute("mlist", mlist);
 		
-		//��ü �¼�����
+		//
 		FullseatviewDAO fsvDao = FullseatviewDAO.getInstance();
 		
 		List<FullseatviewDTO> fsvList = fsvDao.getFullSeatListAll();

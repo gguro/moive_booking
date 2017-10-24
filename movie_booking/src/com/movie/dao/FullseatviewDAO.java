@@ -39,7 +39,7 @@ public class FullseatviewDAO {
 			
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				fsvDTO = new FullseatviewDTO();
 				fsvDTO.setSh_code(rs.getString("sh_code"));
 				fsvDTO.setMv_code(rs.getString("mv_code"));
@@ -53,8 +53,6 @@ public class FullseatviewDAO {
 				fsvDTO.setSt_useyn(rs.getInt("st_useyn"));
 				
 				fsvDTOList.add(fsvDTO);
-			} else {
-				result = -1;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -85,7 +83,7 @@ public class FullseatviewDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, mv_code);
 			rs = pstmt.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				fsvDTO = new FullseatviewDTO();
 				fsvDTO.setSh_code(rs.getString("sh_code"));
 				fsvDTO.setMv_code(rs.getString("mv_code"));
@@ -99,9 +97,7 @@ public class FullseatviewDAO {
 				fsvDTO.setSt_useyn(rs.getInt("st_useyn"));
 				
 				fsvDTOList.add(fsvDTO);
-			} else {
-				result = -1;
-			}
+			} 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -130,7 +126,7 @@ public class FullseatviewDAO {
 			pstmt.setString(1, mv_code);
 			pstmt.setString(2, th_name);
 			rs = pstmt.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				fsvDTO = new FullseatviewDTO();
 				fsvDTO.setSh_code(rs.getString("sh_code"));
 				fsvDTO.setMv_code(rs.getString("mv_code"));
@@ -144,9 +140,7 @@ public class FullseatviewDAO {
 				fsvDTO.setSt_useyn(rs.getInt("st_useyn"));
 				
 				fsvDTOList.add(fsvDTO);
-			} else {
-				result = -1;
-			}
+			} 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -177,7 +171,7 @@ public class FullseatviewDAO {
 			pstmt.setString(3, sr_name);
 			
 			rs = pstmt.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				fsvDTO = new FullseatviewDTO();
 				fsvDTO.setSh_code(rs.getString("sh_code"));
 				fsvDTO.setMv_code(rs.getString("mv_code"));
@@ -191,8 +185,6 @@ public class FullseatviewDAO {
 				fsvDTO.setSt_useyn(rs.getInt("st_useyn"));
 				
 				fsvDTOList.add(fsvDTO);
-			} else {
-				result = -1;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -225,7 +217,7 @@ public class FullseatviewDAO {
 			pstmt.setInt(4, showtime);
 			
 			rs = pstmt.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				fsvDTO = new FullseatviewDTO();
 				fsvDTO.setSh_code(rs.getString("sh_code"));
 				fsvDTO.setMv_code(rs.getString("mv_code"));
@@ -239,9 +231,7 @@ public class FullseatviewDAO {
 				fsvDTO.setSt_useyn(rs.getInt("st_useyn"));
 				
 				fsvDTOList.add(fsvDTO);
-			} else {
-				result = -1;
-			}
+			} 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

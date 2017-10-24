@@ -84,29 +84,4 @@ public class ShowDAO {
 			}
 			
 		}
-
-	/*
-	
-	public List<ShowFullDTO> getShowFullList() {
-		List<ShowFullDTO> shfDTOList = new ArrayList<ShowFullDTO>();
-		
-		ShowFullDTO shfDTO = new ShowFullDTO();
-		
-		List <ShowDTO> sDTOList = getShowList();
-		
-		
-		
-		
-		return shfDTOList;
-	}*/
-	
-	// int insertShow(ShowDTO)
-	// int updateShow(ShowDTO)
-	// ShowDTO getShow(영화제목, 극장, 상영관, 타임)
-	// ArrayList<ShowDTO> getShowListByTitle(영화제목)
-	// ArrayList<ShowDTO> getShowListAll()
-	
-	
-	
-	
 }

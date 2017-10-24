@@ -2,28 +2,35 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
 
-<div id="wrapper">
-	<h2>아이디/패스워드 찾기</h2>
-	<form action="MemberFC?command=find" method="post" name="frm">
-		<table>
-			<tr>
-				<td>아이디 찾기</td>
-				<td>
-					email<input type="text" name="email" size="20" id="email">
+<div class="container">
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<div class="jumbotron">
+				<h3>아이디/비밀번호 찾기</h3>
+				<form method="post" action="MemberFC?command=find" name="frm">
+				  <div class="form-group row" >
+				    <label for="id" class="col-sm-4 col-form-label">아이디 찾기</label>
+				    <div class="col-sm-8">
+				      <input type="text" class="form-control" id="id" placeholder="이메일 입력" name="email">
 						<input type="hidden" name="reid" size="20">
-						<input type="button" value="아이디 찾기" onclick="find_email_Check()">
-				</td>
-			</tr>
-			<tr>
-				<td>패스워드 찾기</td>
-				<td>
-					userid<input type="text" name="userid" size="20" id="userid">
+				    </div>
+				  </div>
+				  <div class="form-group row">
+				    <label for="pwd" class="col-sm-4 col-form-label">비밀번호 찾기</label>
+				    <div class="col-sm-8">
+				      <input type="password" class="form-control" id="pwd" placeholder="아이디 입력" name="userid">
 						<input type="hidden" name="reid" size="20">
-						<input type="button" value="패스워드 찾기" onclick="find_id_Check()">
-				</td>
-			</tr>
-		</table>
-	</form>
+				    </div>
+				  </div>
+				    <button class="btn btn-outline-primary" type="button" onclick="find_email_Check()">아이디 찾기</button>
+				    <button class="btn btn-outline-primary" type="button" onclick="find_id_Check()">비밀번호 찾기</button>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
 </div>
+
 
 <%@ include file="../footer.jsp" %>
